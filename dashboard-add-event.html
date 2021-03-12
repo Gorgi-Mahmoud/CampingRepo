@@ -1,0 +1,302 @@
+<!DOCTYPE HTML>
+<html lang="en">
+
+<!-- Mirrored from themes.webmasterdriver.net/Elemo/dashboard-add-event.html by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 23 Feb 2021 20:32:41 GMT -->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="keywords" content="">
+<meta name="description" content="">
+<title>Elemo - Directory & Listings HTML Template</title>
+<!--Bootstrap -->
+<link rel="stylesheet" href="assets/css/bootstrap.min.css" type="text/css">
+<!--Custome Style -->
+<link rel="stylesheet" href="assets/css/style.css" type="text/css">
+<link rel="stylesheet" href="assets/css/dashboard.css" type="text/css">
+<!--OWL Carousel slider-->
+<link rel="stylesheet" href="assets/css/owl.carousel.css" type="text/css">
+<!--FontAwesome Font Style -->
+<link href="assets/css/font-awesome.min.css" rel="stylesheet">
+<!-- Fav and touch icons -->
+<link rel="apple-touch-icon-precomposed" sizes="144x144" href="assets/images/favicon-icon/apple-touch-icon-144-precomposed.png">
+<link rel="apple-touch-icon-precomposed" sizes="72x72" href="assets/images/favicon-icon/apple-touch-icon-72-precomposed.png">
+<link rel="apple-touch-icon-precomposed" href="assets/images/favicon-icon/apple-touch-icon-57-precomposed.png">
+<link rel="shortcut icon" href="assets/images/favicon-icon/favicon.png">
+<!-- Google-Font-->
+<link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet"> 
+<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+<!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+<![endif]-->  
+</head>
+<body>
+<div class="dashboard_container">
+	<!-- Header -->
+	<header id="header">
+        <nav class="navbar navbar-expand-lg fixed-top">
+            <div class="container-fluid">
+               <div class="navbar-header">
+                <div class="logo"> <a href="index-2.html"><img src="assets/images/logo.png" alt="image"/></a> </div>
+                <div id="dashboard-responsive-nav-trigger"><i class="fa fa-reorder"></i></div>
+              </div>
+                <div class="collapse navbar-collapse" id="">
+                    <div class="user_nav ml-auto">
+                        <div class="dropdown">
+                          <span id="dLabel" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <img src="assets/images/happy-client-01.jpg" alt="img"> 
+                          </span>
+                          <ul class="dropdown-menu" aria-labelledby="dLabel">
+                            <li><a href="dashboard.html"><i class="fa fa-cogs"></i> Dashboard</a></li>
+                            <li><a href="dashboard-my-profile.html"><i class="fa fa-user-o"></i> My Profile</a></li>
+                            <li><a href="index-2.html"><i class="fa fa-power-off"></i> Logout</a></li>                   
+                          </ul>
+                        </div>
+                    </div>
+                    <div class="submit_listing">
+                        <a href="dashboard-add-listing.html" class="btn outline-btn"><i class="fa  fa-plus-circle"></i> Submit Listing</a>
+                     </div>
+                </div>
+             </div>   
+        </nav>
+    </header>
+	<!-- /Header -->
+
+	<div id="dashboard">
+	<!-- Navigation -->
+	<div id="dashboard-nav" class="dashboard-nav">	
+		<ul>
+        	<li class="active"><a href="dashboard.html"><i class="fa fa-cogs"></i> Dashboard</a></li>
+			<li><a data-toggle="dropdown"><i class="fa fa-th-list"></i> My Listings</a>
+				<ul class="dropdown-menu" aria-labelledby="MLabel">
+					<li><a href="dashboard-my-listings.html">Active <span class="nav-tag green">6</span></a></li>
+					<li><a href="dashboard-my-listings.html">Pending <span class="nav-tag yellow">1</span></a></li>
+					<li><a href="dashboard-my-listings.html">Expired <span class="nav-tag red">2</span></a></li>
+				</ul>	
+			</li>
+			<li><a href="dashboard-reviews.html"><i class="fa fa-star-o"></i> Reviews</a></li>
+			<li><a href="dashboard-bookmarks.html"><i class="fa fa-bookmark-o"></i> Bookmarks</a></li>
+			<li><a data-toggle="dropdown"><i class="fa fa-th-list"></i> My Events</a>
+				<ul class="dropdown-menu" aria-labelledby="MLabel">
+					<li><a href="dashboard-my-events.html">Active <span class="nav-tag green">6</span></a></li>
+					<li><a href="dashboard-add-event.html">Add Event</a></li>
+				</ul>	
+			</li>
+			<li><a href="dashboard-add-listing.html"><i class="fa fa-plus"></i> Add Listing</a></li>
+            <li><a href="dashboard-my-profile.html"><i class="fa fa-user-o"></i> My Profile</a></li>
+			<li><a href="index-2.html"><i class="fa fa-power-off"></i> Logout</a></li>
+		</ul>	
+	</div>
+	<!-- Navigation / End -->
+
+	<!-- Content -->
+	<div class="dashboard-content">
+
+		
+<div id="titlebar">
+  <div class="row">
+    <div class="col-md-12">
+      <h2>Add Event</h2>
+      <!-- Breadcrumbs -->
+      <nav id="breadcrumbs">
+        <ul>
+          <li><a href="#">Home </a></li>
+          <li><a href="#"> Dashboard </a></li>
+          <li>Add event</li>
+        </ul>
+      </nav>
+    </div>
+  </div>
+</div>
+        <form class="form-horizontal form_dashboard" id="profileupdate" action="#" method="POST" enctype="multipart/form-data">
+          
+          <div class="add_listing_info">
+            <div class="row">
+              <div class="col-sm-6">
+			  <div class="form-group">
+                <label for="title">Event Title*</label>
+                <input type="text" class="form-control" name="post_title" id="title" placeholder="Event Title">
+              </div>
+			  </div>
+              <div class="col-sm-6">
+			  <div class="form-group">
+                <label for="listing">Pick Your Listing*</label>
+                <input type="text" name="listing_name" class="form-control search-autocomplete ui-autocomplete-input" id="autocomplete" placeholder="Pick Your Listing" autocomplete="off">
+              </div>
+			  </div>
+            </div>
+            <div class="row">
+              <div class="col-sm-6">
+			  <div class="form-group">
+                <label for="date"> Date* </label>
+					<div class="input-daterange input-group" id="datepicker" style="z-index:0;">
+                    <input type="text" name="event_sdate" id="event_sdate" class="form-control event_sdate hasDatepicker" placeholder="Choose Start Date" autocomplete="off">
+					<span class="input-group-addon">to</span>
+					<input type="text" name="event_edate" id="event_edate" class="form-control event_edate hasDatepicker" placeholder="Choose End Date" autocomplete="off">
+					<ul class="ui-autocomplete ui-front ui-menu ui-widget ui-widget-content" id="ui-id-2" tabindex="0" style="display: none;"></ul></div>
+              </div>
+			  </div>
+              <div class="col-sm-6">
+			  <div class="form-group">
+                <label for="time">Time*</label>
+					<div class="input-daterange input-group" id="datepicker" style="z-index:0;">
+                    <input type="text" name="event_stime" id="event_stime" class="form-control event_stime" placeholder="Choose Start Time" autocomplete="off">
+					<span class="input-group-addon">to</span>
+					<input type="text" name="event_etime" id="event_etime" placeholder="Choose End Time" class="form-control event_etime" autocomplete="off">
+					</div>
+				</div>	
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-sm-6">
+			  <div class="form-group">
+                <label for="location">Location </label>
+                <input type="text" name="event_loc" id="inputAddress" placeholder="Location" class="form-control" autocomplete="off">
+                    <input type="hidden" name="event_lat" id="latitude">
+                    <input type="hidden" name="event_lon" id="longitude">
+              </div>
+			  </div>
+              <div class="col-sm-6">
+			  <div class="form-group">
+                <label for="email"> Email</label>
+                <input type="text" name="event_email" id="email" placeholder="Email" class="form-control">
+              </div>
+			  </div>
+            </div>
+            <div class="row">
+              <div class="col-sm-6">
+			  <div class="form-group">
+                <label for="phone">Phone</label>
+               <input type="text" name="event_phone" id="phone" placeholder="Phone" class="form-control">
+              </div>
+			  </div>
+              <div class="col-sm-6">
+			  <div class="form-group">
+                <label for="link">Event Url</label>
+                <input type="text" name="event_link" id="link" placeholder="Event Url" class="form-control">
+              </div>
+			  </div>
+            </div>
+            <div class="row">
+              <div class="col-sm-6">
+			  <div class="form-group">
+                <label for="facebook">Facebook</label>
+                <input type="text" placeholder="Facebook Url" name="event_facebook" id="facebook" class="form-control">
+				</div>
+              </div>
+              <div class="col-sm-6">
+			  <div class="form-group">
+                <label for="twitter">Twitter</label>
+                <input type="text" placeholder="Twitter Url" name="event_twitter" id="twitter" class="form-control">
+              </div>
+			  </div>
+            </div>
+            <div class="row">
+              <div class="col-sm-6">
+			  <div class="form-group">
+                <label for="google">Google+ </label>
+               <input type="text" name="event_google" placeholder="Google+ Url" id="google" class="form-control">
+              </div>
+			  </div>
+			  <div class="col-sm-6">
+			  <div class="form-group">
+                <label for="image">
+                  Image                </label>
+               <input type="file" name="post_image" id="image" class="form-control">
+              </div>
+			  </div>
+            </div>
+			<div class="row">
+			<div class="col-sm-12">
+			<div class="form-group">
+                <label for="description"> Description</label>
+				<textarea class="form-control" id="input" name="post_content" rows="4" placeholder="Description" ></textarea>
+			</div>
+            </div>
+			</div>
+          
+          
+            <div class="form-group">
+              <div class="col-sm-12">
+                <input type="submit" name="addevent" value="Submit" class="btn">
+              </div>
+            </div>
+          </div>
+        </form>
+
+
+
+<!--updateprofile-->
+
+<div class="row">
+<div class="col-md-12">
+	<div class="copyrights">Copyright © 2020 Elemo. All Rights Reserved</div>      
+    </div>
+</div>	        
+
+	</div>
+	<!-- Content / End -->
+</div>
+</div>
+
+<!-- Scripts --> 
+<script src="assets/js/jquery.min.js"></script>
+<script src="assets/js/popper.min.js"></script> 
+<script src="assets/js/bootstrap.min.js"></script> 
+<script src="assets/js/interface.js"></script> 
+<!--Carousel-JS--> 
+<script src="assets/js/owl.carousel.min.js"></script>
+<link rel="stylesheet" href="../../cdnjs.cloudflare.com/ajax/libs/timepicker/1.3.5/jquery.timepicker.min.css">	
+<script src="../../cdnjs.cloudflare.com/ajax/libs/timepicker/1.3.5/jquery.timepicker.min.js"></script>
+<script>		
+$(function() {
+        $( ".event_sdate" ).datepicker({
+			minDate: '0',
+            dateFormat : "dd-mm-yy"
+        });
+    });		
+	$(function() {
+        $( ".event_edate" ).datepicker({
+			minDate: '0',
+            dateFormat : "dd-mm-yy"
+        });
+    });	
+	
+	
+$(function() {	
+	$(document).ready(function(){
+		$('.event_stime').timepicker({
+			timeFormat: 'h:mm p',
+			interval: 60,
+			minTime: '0',
+			maxTime: '11:00pm',
+			dynamic: false,
+			dropdown: true,
+			scrollbar: true
+		});
+	});
+});	
+$(function() {	
+	$(document).ready(function(){
+		$('.event_etime').timepicker({
+			timeFormat: 'h:mm p',
+			interval: 60,
+			minTime: '0',
+			maxTime: '11:00pm',
+			dynamic: false,
+			dropdown: true,
+			scrollbar: true
+		});
+	});
+});	
+
+ $(document).ready(function () { $("#input").cleditor(); });
+</script>
+<link rel="stylesheet" href="assets/css/jquery.cleditor.html">
+<script src="assets/js/jquery.cleditor.min.html"></script>
+</body>
+
+<!-- Mirrored from themes.webmasterdriver.net/Elemo/dashboard-add-event.html by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 23 Feb 2021 20:33:17 GMT -->
+</html>
