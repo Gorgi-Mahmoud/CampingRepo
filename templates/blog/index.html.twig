@@ -1,0 +1,61 @@
+{% extends 'base.html.twig' %}
+{% block body %}
+
+
+<!-- Blog -->
+<section id="inner_pages">
+    <div class="dropdown">
+        <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Sort
+        </button>
+        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+            <a class="dropdown-item" href="/blog">Sort by Flush</a>
+            <a class="dropdown-item" href="/blogV">Sort by Vues</a>
+            <a class="dropdown-item" href="/blogD">Sort by Date</a>
+        </div>
+    </div>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-8">
+                <div class="row">
+                    {% for s in Blog %}
+                        <article class="col-sm-6 article_wrap">
+                            <div class="post-thumbnail">
+                                <a href="blog/{{ s.id }}"><img src="assets/images/post_5.jpg" alt="image"></a>
+                            </div>
+                            <div class="entry-desc">
+                                <h3><a href="blog/{{ s.id }}">{{ s.titre }}</a></h3>
+                                <div class="entry-content">
+                                    <p>{{ s.contenu|length > 50 ? s.contenu|slice(0, 50) ~ '...' : s.contenu  }}</p>
+                                </div>
+                                <a href="blog/{{ s.id }}" class="read_btn">Read More <i class="fa fa-angle-right"></i></a>
+                            </div>
+                        </article>
+                    {% endfor %}
+                </div>
+            </div>
+
+            <aside class="col-md-4">
+                <div class="sidebar">
+                    <div class="sidebar_widgets">
+                        <div class="widget_title">
+                            <h4>Categories</h4>
+                        </div>
+                        <ul>
+                            <li><a href="#">Lifestyle</a></li>
+                            <li><a href="#">Health & Care</a></li>
+                            <li><a href="#">Inspiration</a></li>
+                            <li><a href="#">Design</a></li>
+                            <li><a href="#">Interior</a></li>
+                            <li><a href="#">Uncategorized</a></li>
+                        </ul>
+                    </div>
+
+
+                </div>
+            </aside>
+        </div>
+    </div>
+</section>
+<!-- /Blog -->
+{% endblock %}
