@@ -1,15 +1,24 @@
 <?php
 
 namespace App\Entity;
-
 use App\Repository\UserRepository;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
+use Symfony\Component\HttpFoundation\File\File;
 use Symfony\Component\Security\Core\User\UserInterface;
+use Symfony\Component\Validator\Constraints as Assert;
+use Symfony\Component\HttpFoundation\File\UploadedFile;
+use Vich\UploaderBundle\Mapping\Annotation as Vich;
+use Vish\UploaderBundle\Mapping\Annotation\UploadbleFile;
+use Vich\UploaderBundle\Mapping\Annotation\Uploable;
+
 
 /**
  * @ORM\Entity(repositoryClass=UserRepository::class)
+ * @UniqueEntity(fields={"email"}, message="There is already an account with this email")
+ * @Vich\Uploadable
  */
-class User implements UserInterface
+class User implements UserInterface ,\Serializable
 {
     /**
      * @ORM\Id
@@ -31,8 +40,67 @@ class User implements UserInterface
     /**
      * @var string The hashed password
      * @ORM\Column(type="string")
+     * @Assert\Length(
+     *     min=8
+     *     )
+     *
      */
     private $password;
+
+    /**
+     *
+     * @Assert\EqualTo(propertyPath="password" , message="this should be equal To your password")
+     */
+    public $Confirmer_password;
+
+    /**
+     * @ORM\Column(type="integer")
+     */
+    public $code;
+
+    /**
+     * @ORM\Column(type="string", length=50, nullable=true)
+     */
+    private $reset_code;
+
+    /**
+     * @ORM\Column(type="string", length=100)
+     */
+    private $name;
+
+    /**
+     * @ORM\Column(type="integer")
+     */
+    private $tel;
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="image", type="string", length=255, nullable=true)
+     */
+    private $image;
+
+    /**
+     * @Vich\UploadableField(mapping="event_image", fileNameProperty="image")
+     */
+    private $imageFile;
+
+    public function getImageFile(): ?File
+    {
+        return $this->imageFile;
+    }
+    public function setImageFile(?File $imageFile = null): self
+    {
+        $this->imageFile = $imageFile;
+        return $this;
+
+        /*if (null !== $imageFile) {
+            // It is required that at least one field changes if you are using doctrine
+            // otherwise the event listeners won't be called and the file is lost
+            $this->updatedAt = new \DateTimeImmutable();
+        }*/
+    }
+
+
 
     public function getId(): ?int
     {
@@ -114,4 +182,82 @@ class User implements UserInterface
         // If you store any temporary, sensitive data on the user, clear it here
         // $this->plainPassword = null;
     }
+    public function adminDashboard()
+    {
+        $this->denyAccessUnlessGranted('ROLE_ADMIN');
+
+        // or add an optional message - seen by developers
+        $this->denyAccessUnlessGranted('ROLE_ADMIN', null, 'User tried to access a page without having ROLE_ADMIN');
+    }
+
+    public function getResetCode(): ?string
+    {
+        return $this->reset_code;
+    }
+
+    public function setResetCode(?string $reset_code): self
+    {
+        $this->reset_code = $reset_code;
+
+        return $this;
+    }
+    public function getName(): string
+    {
+        return (string) $this->name;
+    }
+    public function setName(string $name): self
+    {
+        $this->name = $name;
+
+        return $this;
+    }
+
+    public function getTel(): ?int
+    {
+        return $this->tel;
+    }
+
+    public function setTel(int $tel): self
+    {
+        $this->tel = $tel;
+
+        return $this;
+    }
+    public function getImage(): ?string
+    {
+        return $this->image;
+    }
+
+    public function setImage(?string $image): self
+    {
+        $this->image = $image;
+
+        return $this;
+    }
+    public function serialize()
+    {
+        return serialize(array(
+            $this->id,
+            $this->email,
+            $this->tel,
+            $this->password,
+            $this->roles,
+            $this->image,
+        ));
+        // $this->image = base64_encode($this->image);
+    }
+
+    public function unserialize($serialized)
+    {
+        list (
+            $this->id,
+            $this->email,
+            $this->tel,
+            $this->password,
+            $this->roles,
+            $this->image,
+            ) = unserialize($serialized, array('allowed_classes' => false));
+        //$this->image = base64_decode($this->image);
+    }
+
 }
