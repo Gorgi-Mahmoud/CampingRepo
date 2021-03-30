@@ -1,0 +1,30 @@
+{% extends 'base.html.twig' %}
+{% block body1 %}
+{% endblock %}
+
+{% block body2 %}
+{% endblock %}
+
+{% block body3 %}
+    <form method="post" action="{{ path('categorie_delete', {'id': categorie.id}) }}" onsubmit="return confirm('etes vous sure de supprimer!');">
+        <input type="hidden" name="_method" value="DELETE">
+        <input type="hidden" name="_token" value="{{ csrf_token('delete' ~ categorie.id) }}">
+        <button class="btn">Supprimer</button>
+    </form>
+
+{% block footer %}
+    {% endblock %}
+
+{% endblock %}
+
+{% block body4 %}
+{% endblock %}
+
+{% block body5 %}
+{% endblock %}
+
+
+
+
+{% block body6 %}
+{% endblock %}

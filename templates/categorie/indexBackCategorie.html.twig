@@ -1,0 +1,41 @@
+{% extends 'back.html.twig' %}
+
+
+
+
+
+
+{% block body4 %}
+
+    <table class="table" >
+
+        <thead>
+        <tr>
+            <th>Id</th>
+            <th>Categories</th>
+            <th>Nombre de vue</th>
+            <th>nombre de questions</th>
+
+        </tr>
+        </thead>
+        <body>
+        {% for s in categoriesBack %}
+            <tr>
+                <td>{{ s.id }}</td>
+                <td><a href="{{ path('question_index_back', {'idcategorie': s.id})}}" class="pn">{{ s.nameCategorie }}</a></td>
+
+                <td>{{ s.nbrVueCategorie }}</td>
+                <td>{{ s.nbrQuestion }}</td>
+                <td>
+                    <a href="{{ path('categorie_edit_Back', {'id': s.id}) }}" {#  class="btn"#}><i class="fas fa-edit"></i></a>
+                </td>
+
+            </tr>
+
+        {% endfor %}
+        </body>
+    </table>
+{% endblock %}
+
+{% block body5 %}
+{% endblock %}

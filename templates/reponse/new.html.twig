@@ -1,0 +1,34 @@
+{% extends 'base.html.twig' %}
+{% block body1 %}
+{% endblock %}
+
+{% block body2 %}
+{% endblock %}
+
+{% block body3 %}
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <h1>Ajouter une commentaire</h1>
+
+    {{ include('reponse/_form.html.twig') }}
+
+    <a href="{{ path('reponse_index',{'idquestion': idquestion }) }}">aficher les commentaires</a>
+{% endblock %}
+
+{% block body4 %}
+{% endblock %}
+
+{% block body5 %}
+{% endblock %}
+
+
+
+
+{% block body6 %}
+{% endblock %}

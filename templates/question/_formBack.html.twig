@@ -1,0 +1,20 @@
+{% extends 'back.html.twig' %}
+
+
+
+
+
+
+{% block body4 %}
+
+{{ form_start(form) }}
+    {{ form_row(form.question) }}
+    {{ form_row(form.captchaCode)}}
+
+<button class="btn">{{ button_label|default('Enregistrer') }}</button>
+{{ form_end(form) }}
+
+{% endblock %}
+
+{% block body5 %}
+{% endblock %}
