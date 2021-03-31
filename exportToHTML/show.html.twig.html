@@ -1,0 +1,67 @@
+<html>
+<head>
+<title>show.html.twig</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<style type="text/css">
+.s0 { color: #a9b7c6;}
+.s1 { color: #cc7832;}
+.s2 { color: #6a8759;}
+.s3 { color: #a9b7c6;}
+.s4 { color: #a9b7c6;}
+.s5 { color: #a9b7c6;}
+.s6 { color: #e8bf6a;}
+.s7 { color: #bababa;}
+.s8 { color: #a5c261;}
+</style>
+</head>
+<body bgcolor="#2b2b2b">
+<table CELLSPACING=0 CELLPADDING=5 COLS=1 WIDTH="100%" BGCOLOR="#606060" >
+<tr><td><center>
+<font face="Arial, Helvetica" color="#000000">
+show.html.twig</font>
+</center></td></tr></table>
+<pre><span class="s0">{% </span><span class="s1">extends </span><span class="s2">'base.html.twig' </span><span class="s0">%}</span>
+
+<span class="s0">{% </span><span class="s1">block </span><span class="s4">title </span><span class="s0">%}</span><span class="s5">Gmusee</span><span class="s0">{% </span><span class="s1">endblock </span><span class="s0">%}</span>
+
+<span class="s0">{% </span><span class="s1">block </span><span class="s4">body </span><span class="s0">%}</span>
+    <span class="s6">&lt;h1&gt;</span><span class="s5">Gmusee</span><span class="s6">&lt;/h1&gt;</span>
+
+    <span class="s6">&lt;table </span><span class="s7">class</span><span class="s8">=&quot;table&quot;</span><span class="s6">&gt;</span>
+        <span class="s6">&lt;tbody&gt;</span>
+            <span class="s6">&lt;tr&gt;</span>
+                <span class="s6">&lt;th&gt;</span><span class="s5">Id</span><span class="s6">&lt;/th&gt;</span>
+                <span class="s6">&lt;td&gt;</span><span class="s0">{{ </span><span class="s4">gmusee</span><span class="s0">.</span><span class="s4">id </span><span class="s0">}}</span><span class="s6">&lt;/td&gt;</span>
+            <span class="s6">&lt;/tr&gt;</span>
+            <span class="s6">&lt;tr&gt;</span>
+                <span class="s6">&lt;th&gt;</span><span class="s5">Id_musee</span><span class="s6">&lt;/th&gt;</span>
+                <span class="s6">&lt;td&gt;</span><span class="s0">{{ </span><span class="s4">gmusee</span><span class="s0">.</span><span class="s4">idMusee </span><span class="s0">}}</span><span class="s6">&lt;/td&gt;</span>
+            <span class="s6">&lt;/tr&gt;</span>
+            <span class="s6">&lt;tr&gt;</span>
+                <span class="s6">&lt;th&gt;</span><span class="s5">Nom</span><span class="s6">&lt;/th&gt;</span>
+                <span class="s6">&lt;td&gt;</span><span class="s0">{{ </span><span class="s4">gmusee</span><span class="s0">.</span><span class="s4">nom </span><span class="s0">}}</span><span class="s6">&lt;/td&gt;</span>
+            <span class="s6">&lt;/tr&gt;</span>
+            <span class="s6">&lt;tr&gt;</span>
+                <span class="s6">&lt;th&gt;</span><span class="s5">Place</span><span class="s6">&lt;/th&gt;</span>
+                <span class="s6">&lt;td&gt;</span><span class="s0">{{ </span><span class="s4">gmusee</span><span class="s0">.</span><span class="s4">place </span><span class="s0">}}</span><span class="s6">&lt;/td&gt;</span>
+            <span class="s6">&lt;/tr&gt;</span>
+            <span class="s6">&lt;tr&gt;</span>
+                <span class="s6">&lt;th&gt;</span><span class="s5">Description</span><span class="s6">&lt;/th&gt;</span>
+                <span class="s6">&lt;td&gt;</span><span class="s0">{{ </span><span class="s4">gmusee</span><span class="s0">.</span><span class="s4">description </span><span class="s0">}}</span><span class="s6">&lt;/td&gt;</span>
+            <span class="s6">&lt;/tr&gt;</span>
+            <span class="s6">&lt;tr&gt;</span>
+                <span class="s6">&lt;th&gt;</span><span class="s5">Image</span><span class="s6">&lt;/th&gt;</span>
+                <span class="s6">&lt;td&gt;</span><span class="s0">{{ </span><span class="s4">gmusee</span><span class="s0">.</span><span class="s4">image </span><span class="s0">}}</span><span class="s6">&lt;/td&gt;</span>
+            <span class="s6">&lt;/tr&gt;</span>
+        <span class="s6">&lt;/tbody&gt;</span>
+    <span class="s6">&lt;/table&gt;</span>
+
+    <span class="s6">&lt;a </span><span class="s7">href</span><span class="s8">=&quot;</span><span class="s0">{{ </span><span class="s4">path</span><span class="s0">(</span><span class="s2">'gmusee_index'</span><span class="s0">) }}</span><span class="s8">&quot;</span><span class="s6">&gt;</span><span class="s5">back to list</span><span class="s6">&lt;/a&gt;</span>
+
+    <span class="s6">&lt;a </span><span class="s7">href</span><span class="s8">=&quot;</span><span class="s0">{{ </span><span class="s4">path</span><span class="s0">(</span><span class="s2">'gmusee_edit'</span><span class="s0">, {</span><span class="s2">'id'</span><span class="s0">: </span><span class="s4">gmusee</span><span class="s0">.</span><span class="s4">id</span><span class="s0">}) }}</span><span class="s8">&quot;</span><span class="s6">&gt;</span><span class="s5">edit</span><span class="s6">&lt;/a&gt;</span>
+
+    <span class="s0">{{ </span><span class="s4">include</span><span class="s0">(</span><span class="s2">'gmusee/_delete_form.html.twig'</span><span class="s0">) }}</span>
+<span class="s0">{% </span><span class="s1">endblock </span><span class="s0">%}</span>
+</pre>
+</body>
+</html>

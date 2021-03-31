@@ -1,0 +1,4 @@
+#index:
+ #  path: /gmusee/index1
+#    controller: App\Controller\DefaultController::index
+

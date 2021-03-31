@@ -1,0 +1,49 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Gmusee index{% endblock %}
+
+{% block body %}
+<div class="col-lg-12 col-md-12">
+    <div class="dashboard-list-box">
+        <div class="post-thumbnail">
+        </div>
+    <input type="text" id="search" class="form-control" placeholder="Search">
+    <button type="submit" class="btn btn-success">Rechercher</button>
+        <div>
+
+        <h4>Musée</h4>
+        <ul>
+                {% for gmusee in gmusees %}
+                {% for image in gmusee.images %}
+
+
+            <li>
+                <div class="list-box-listing">
+                    <div class="list-box-listing-img"><a href="#"><img src="{{ asset ('/uploads/' ~ image.name ) }}" alt=""></a></div>
+                    <div class="list-box-listing-content">
+                        <div class="inner">
+                            <h3><a href="{{ path('gmusee_show', {'id': gmusee.id}) }}">{{ gmusee.nom }}</a></h3>
+                            <i class="fa fa-map-o"></i>  <span>{{ gmusee.place }}</span>
+                            <div class="star-rating">
+                                <div class="rating-counter">{{ gmusee.description }}</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="buttons-to-right">
+                    <a href="{{ path('gmusee_edit', {'id': gmusee.id}) }}" class="button gray"><i class="fa fa-pencil"></i> Edit</a>
+                    <a href="{{ path('gmusee_delete', {'id': gmusee.id}) }}" class="button red"><i class="fa fa-trash-o"></i> Delete</a>
+                    <td> <a href="{{ path('gmusee_show', {'id': gmusee.id}) }}"class="button gray"><i class="fa fa-eye"></i>show</a>
+                </div>
+            </li>
+
+ {% endfor %}
+
+            </tbody>
+            <tbody id="search">
+            </tbody>
+
+
+                {% endfor %}
+            {% block js %}
+{% endblock %}{% endblock %}

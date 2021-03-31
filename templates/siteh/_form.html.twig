@@ -1,0 +1,17 @@
+{{ form_start(form) }}
+    {{ form_widget(form) }}
+
+    {# Si la route est "annonces_edit on affiche les images #}
+	{% if app.request.attributes.get('_route') == 'siteh_edit' %}
+        <h2>Photos</h2>
+        {% for photo in siteh.photos %}
+            <div>
+                <img src="{{ asset('/uploads/'~photo.name) }}" alt="" width="150">
+
+                {# On ajoute un lien permettant de supprimer une image (sera géré en Ajax) #}
+
+            </div>
+        {% endfor %}
+    {% endif %}
+<button class="btn">{{ button_label|default('Save') }}</button>
+{{ form_end(form) }}

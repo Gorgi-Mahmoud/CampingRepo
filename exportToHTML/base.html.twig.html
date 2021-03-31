@@ -1,0 +1,221 @@
+<html>
+<head>
+<title>base.html.twig</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<style type="text/css">
+.s0 { color: #a9b7c6;}
+.s1 { color: #e8bf6a;}
+.s2 { color: #bababa;}
+.s3 { color: #a5c261;}
+.s4 { color: #808080;}
+.s5 { color: #a9b7c6;}
+.s6 { color: #cc7832;}
+.s7 { color: #a9b7c6;}
+.s8 { color: #a9b7c6;}
+.s9 { color: #6a8759;}
+.s10 { color: #6897bb;}
+.s11 { color: #cc7832;}
+.s12 { color: #6d9cbe;}
+</style>
+</head>
+<body bgcolor="#2b2b2b">
+<table CELLSPACING=0 CELLPADDING=5 COLS=1 WIDTH="100%" BGCOLOR="#606060" >
+<tr><td><center>
+<font face="Arial, Helvetica" color="#000000">
+base.html.twig</font>
+</center></td></tr></table>
+<pre>
+
+
+<span class="s1">&lt;!DOCTYPE </span><span class="s2">HTML</span><span class="s1">&gt;</span>
+<span class="s1">&lt;html </span><span class="s2">lang</span><span class="s3">=&quot;en&quot;</span><span class="s1">&gt;</span>
+
+<span class="s4">&lt;!-- Mirrored from themes.webmasterdriver.net/Elemo/blog-grid-style.html by HTTrack Website Copier/3.x [XR&amp;CO'2014], Tue, 23 Feb 2021 20:30:44 GMT --&gt;</span>
+<span class="s1">&lt;head&gt;</span>
+    <span class="s1">&lt;meta </span><span class="s2">http-equiv</span><span class="s3">=&quot;Content-Type&quot; </span><span class="s2">content</span><span class="s3">=&quot;text/html; charset=utf-8&quot;</span><span class="s1">&gt;</span>
+    <span class="s1">&lt;meta </span><span class="s2">http-equiv</span><span class="s3">=&quot;X-UA-Compatible&quot; </span><span class="s2">content</span><span class="s3">=&quot;IE=edge&quot;</span><span class="s1">&gt;</span>
+    <span class="s1">&lt;meta </span><span class="s2">name</span><span class="s3">=&quot;viewport&quot; </span><span class="s2">content</span><span class="s3">=&quot;width=device-width,initial-scale=1&quot;</span><span class="s1">&gt;</span>
+    <span class="s1">&lt;meta </span><span class="s2">name</span><span class="s3">=&quot;keywords&quot; </span><span class="s2">content</span><span class="s3">=&quot;&quot;</span><span class="s1">&gt;</span>
+    <span class="s1">&lt;meta </span><span class="s2">name</span><span class="s3">=&quot;description&quot; </span><span class="s2">content</span><span class="s3">=&quot;&quot;</span><span class="s1">&gt;</span>
+    <span class="s1">&lt;title&gt;</span><span class="s5">{% </span><span class="s6">block </span><span class="s7">title </span><span class="s5">%}</span><span class="s8">Blog</span><span class="s5">{% </span><span class="s6">endblock </span><span class="s5">%}</span><span class="s1">&lt;/title&gt;</span>
+    <span class="s4">&lt;!--Bootstrap --&gt;</span>
+    <span class="s5">{% </span><span class="s6">block </span><span class="s7">stylesheets </span><span class="s5">%}</span>
+    <span class="s1">&lt;link </span><span class="s2">rel</span><span class="s3">=&quot;stylesheet&quot; </span><span class="s2">href</span><span class="s3">=&quot;</span><span class="s5">{{ </span><span class="s7">asset</span><span class="s5">(</span><span class="s9">'assets/css/bootstrap.min.css'</span><span class="s5">) }}</span><span class="s3">&quot; </span><span class="s2">type</span><span class="s3">=&quot;text/css&quot;</span><span class="s1">&gt;</span>
+    <span class="s4">&lt;!--Custome Style --&gt;</span>
+    <span class="s1">&lt;link </span><span class="s2">rel</span><span class="s3">=&quot;stylesheet&quot; </span><span class="s2">href</span><span class="s3">=&quot;</span><span class="s5">{{ </span><span class="s7">asset</span><span class="s5">(</span><span class="s9">'assets/css/style.css'</span><span class="s5">) }}</span><span class="s3">&quot; </span><span class="s2">type</span><span class="s3">=&quot;text/css&quot;</span><span class="s1">&gt;</span>
+    <span class="s4">&lt;!--OWL Carousel slider--&gt;</span>
+    <span class="s1">&lt;link </span><span class="s2">rel</span><span class="s3">=&quot;stylesheet&quot; </span><span class="s2">href</span><span class="s3">=&quot;</span><span class="s5">{{ </span><span class="s7">asset</span><span class="s5">(</span><span class="s9">'assets/css/owl.carousel.css '</span><span class="s5">)}}</span><span class="s3">&quot; </span><span class="s2">type</span><span class="s3">=&quot;text/css&quot;</span><span class="s1">&gt;</span>
+    <span class="s4">&lt;!--FontAwesome Font Style --&gt;</span>
+    <span class="s1">&lt;link </span><span class="s2">href</span><span class="s3">=&quot;</span><span class="s5">{{ </span><span class="s7">asset</span><span class="s5">(</span><span class="s9">'assets/css/font-awesome.min.css'</span><span class="s5">) }}</span><span class="s3">&quot; </span><span class="s2">rel</span><span class="s3">=&quot;stylesheet&quot;</span><span class="s1">&gt;</span>
+    <span class="s4">&lt;!-- SWITCHER --&gt;</span>
+    <span class="s1">&lt;link </span><span class="s2">rel</span><span class="s3">=&quot;stylesheet&quot; </span><span class="s2">id</span><span class="s3">=&quot;switcher-css&quot; </span><span class="s2">type</span><span class="s3">=&quot;text/css&quot; </span><span class="s2">href</span><span class="s3">=&quot;</span><span class="s5">{{ </span><span class="s7">asset</span><span class="s5">(</span><span class="s9">'assets/switcher/css/switcher.css'</span><span class="s5">) }}</span><span class="s3">&quot; </span><span class="s2">media</span><span class="s3">=&quot;all&quot; </span><span class="s1">/&gt;</span>
+    <span class="s1">&lt;link </span><span class="s2">rel</span><span class="s3">=&quot;alternate stylesheet&quot; </span><span class="s2">type</span><span class="s3">=&quot;text/css&quot; </span><span class="s2">href</span><span class="s3">=&quot;</span><span class="s5">{{ </span><span class="s7">asset</span><span class="s5">(</span><span class="s9">'assets/switcher/css/blue.css'</span><span class="s5">) }}</span><span class="s3">&quot; </span><span class="s2">title</span><span class="s3">=&quot;blue&quot; </span><span class="s2">media</span><span class="s3">=&quot;all&quot; </span><span class="s2">data-default-color</span><span class="s3">=&quot;true&quot; </span><span class="s1">/&gt;</span>
+    <span class="s1">&lt;link </span><span class="s2">rel</span><span class="s3">=&quot;alternate stylesheet&quot; </span><span class="s2">type</span><span class="s3">=&quot;text/css&quot; </span><span class="s2">href</span><span class="s3">=&quot;</span><span class="s5">{{ </span><span class="s7">asset</span><span class="s5">(</span><span class="s9">'assets/switcher/css/pink.css'</span><span class="s5">) }}</span><span class="s3">&quot; </span><span class="s2">title</span><span class="s3">=&quot;pink&quot; </span><span class="s2">media</span><span class="s3">=&quot;all&quot; </span><span class="s1">/&gt;</span>
+    <span class="s1">&lt;link </span><span class="s2">rel</span><span class="s3">=&quot;alternate stylesheet&quot; </span><span class="s2">type</span><span class="s3">=&quot;text/css&quot; </span><span class="s2">href</span><span class="s3">=&quot;</span><span class="s5">{{ </span><span class="s7">asset</span><span class="s5">(</span><span class="s9">'assets/switcher/css/orange.css '</span><span class="s5">)}}</span><span class="s3">&quot; </span><span class="s2">title</span><span class="s3">=&quot;orange&quot; </span><span class="s2">media</span><span class="s3">=&quot;all&quot; </span><span class="s1">/&gt;</span>
+    <span class="s1">&lt;link </span><span class="s2">rel</span><span class="s3">=&quot;alternate stylesheet&quot; </span><span class="s2">type</span><span class="s3">=&quot;text/css&quot; </span><span class="s2">href</span><span class="s3">=&quot;</span><span class="s5">{{ </span><span class="s7">asset</span><span class="s5">(</span><span class="s9">'assets/switcher/css/green.css'</span><span class="s5">)}}</span><span class="s3">&quot; </span><span class="s2">title</span><span class="s3">=&quot;green&quot; </span><span class="s2">media</span><span class="s3">=&quot;all&quot; </span><span class="s1">/&gt;</span>
+    <span class="s1">&lt;link </span><span class="s2">rel</span><span class="s3">=&quot;alternate stylesheet&quot; </span><span class="s2">type</span><span class="s3">=&quot;text/css&quot; </span><span class="s2">href</span><span class="s3">=&quot;</span><span class="s5">{{ </span><span class="s7">asset</span><span class="s5">(</span><span class="s9">'assets/switcher/css/red.css'</span><span class="s5">)}}</span><span class="s3">&quot; </span><span class="s2">title</span><span class="s3">=&quot;red&quot; </span><span class="s2">media</span><span class="s3">=&quot;all&quot; </span><span class="s1">/&gt;</span>
+    <span class="s1">&lt;link </span><span class="s2">rel</span><span class="s3">=&quot;alternate stylesheet&quot; </span><span class="s2">type</span><span class="s3">=&quot;text/css&quot; </span><span class="s2">href</span><span class="s3">=&quot;</span><span class="s5">{{ </span><span class="s7">asset</span><span class="s5">(</span><span class="s9">'assets/switcher/css/purple.css'</span><span class="s5">)}}</span><span class="s3">&quot; </span><span class="s2">title</span><span class="s3">=&quot;purple&quot; </span><span class="s2">media</span><span class="s3">=&quot;all&quot; </span><span class="s1">/&gt;</span>
+
+    <span class="s4">&lt;!-- Fav and touch icons --&gt;</span>
+    <span class="s1">&lt;link </span><span class="s2">rel</span><span class="s3">=&quot;apple-touch-icon-precomposed&quot; </span><span class="s2">sizes</span><span class="s3">=&quot;144x144&quot; </span><span class="s2">href</span><span class="s3">=&quot;</span><span class="s5">{{ </span><span class="s7">asset</span><span class="s5">(</span><span class="s9">'assets/images/favicon-icon/apple-touch-icon-144-precomposed.png'</span><span class="s5">)}}</span><span class="s3">&quot;</span><span class="s1">&gt;</span>
+    <span class="s1">&lt;link </span><span class="s2">rel</span><span class="s3">=&quot;apple-touch-icon-precomposed&quot; </span><span class="s2">sizes</span><span class="s3">=&quot;72x72&quot; </span><span class="s2">href</span><span class="s3">=&quot;</span><span class="s5">{{ </span><span class="s7">asset</span><span class="s5">(</span><span class="s9">'assets/images/favicon-icon/apple-touch-icon-72-precomposed.png'</span><span class="s5">)}}</span><span class="s3">&quot;</span><span class="s1">&gt;</span>
+    <span class="s1">&lt;link </span><span class="s2">rel</span><span class="s3">=&quot;apple-touch-icon-precomposed&quot; </span><span class="s2">href</span><span class="s3">=&quot;</span><span class="s5">{{ </span><span class="s7">asset</span><span class="s5">(</span><span class="s9">'assets/images/favicon-icon/apple-touch-icon-57-precomposed.png'</span><span class="s5">)}}</span><span class="s3">&quot;</span><span class="s1">&gt;</span>
+    <span class="s1">&lt;link </span><span class="s2">rel</span><span class="s3">=&quot;shortcut icon&quot; </span><span class="s2">href</span><span class="s3">=&quot;</span><span class="s5">{{ </span><span class="s7">asset</span><span class="s5">(</span><span class="s9">'assets/images/favicon-icon/favicon.png'</span><span class="s5">)}}</span><span class="s3">&quot;</span><span class="s1">&gt;</span>
+    <span class="s4">&lt;!-- Google-Font--&gt;</span>
+    <span class="s1">&lt;link </span><span class="s2">href</span><span class="s3">=&quot;https://fonts.googleapis.com/css?family=Montserrat:300,400,500,700,800&quot; </span><span class="s2">rel</span><span class="s3">=&quot;stylesheet&quot;</span><span class="s1">&gt;</span>
+    <span class="s1">&lt;link </span><span class="s2">href</span><span class="s3">=&quot;https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700&quot; </span><span class="s2">rel</span><span class="s3">=&quot;stylesheet&quot;</span><span class="s1">&gt;</span>
+    <span class="s4">&lt;!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries --&gt;</span>
+    <span class="s4">&lt;!-- WARNING: Respond.js doesn't work if you view the page via file:// --&gt;</span>
+    <span class="s4">&lt;!--[if lt IE 9]&gt;</span>
+    <span class="s4">&lt;script src=&quot;https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js&quot;&gt;&lt;/script&gt; 
+    &lt;script src=&quot;https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js&quot;&gt;&lt;/script&gt; 
+    &lt;![endif]--&gt;</span>
+<span class="s1">&lt;/head&gt;</span>
+<span class="s5">{% </span><span class="s6">endblock </span><span class="s5">%}</span>
+<span class="s1">&lt;body&gt;</span>
+<span class="s4">&lt;!-- Start Switcher --&gt;</span>
+<span class="s1">&lt;div </span><span class="s2">class</span><span class="s3">=&quot;switcher-wrapper&quot;</span><span class="s1">&gt;</span>
+    <span class="s1">&lt;div </span><span class="s2">class</span><span class="s3">=&quot;demo_changer&quot;</span><span class="s1">&gt;</span>
+        <span class="s1">&lt;div </span><span class="s2">class</span><span class="s3">=&quot;demo-icon customBgColor&quot;</span><span class="s1">&gt;&lt;i </span><span class="s2">class</span><span class="s3">=&quot;fa fa-cog fa-spin fa-2x&quot;</span><span class="s1">&gt;&lt;/i&gt;&lt;/div&gt;</span>
+        <span class="s1">&lt;div </span><span class="s2">class</span><span class="s3">=&quot;form_holder&quot;</span><span class="s1">&gt;</span>
+            <span class="s1">&lt;div </span><span class="s2">class</span><span class="s3">=&quot;row&quot;</span><span class="s1">&gt;</span>
+                <span class="s1">&lt;div </span><span class="s2">class</span><span class="s3">=&quot;col-lg-12 col-md-12 col-sm-12 col-xs-12&quot;</span><span class="s1">&gt;</span>
+                    <span class="s1">&lt;div </span><span class="s2">class</span><span class="s3">=&quot;predefined_styles&quot;</span><span class="s1">&gt;</span>
+                        <span class="s1">&lt;div </span><span class="s2">class</span><span class="s3">=&quot;skin-theme-switcher&quot;</span><span class="s1">&gt;</span>
+                            <span class="s1">&lt;h4&gt;</span><span class="s8">Color</span><span class="s1">&lt;/h4&gt;</span>
+                            <span class="s1">&lt;a </span><span class="s2">href</span><span class="s3">=&quot;#&quot; </span><span class="s2">data-switchcolor</span><span class="s3">=&quot;blue&quot; </span><span class="s2">class</span><span class="s3">=&quot;styleswitch&quot; </span><span class="s2">style</span><span class="s3">=&quot;</span><span class="s2">background-color</span><span class="s8">:</span><span class="s10">#38ccff</span><span class="s11">;</span><span class="s3">&quot;</span><span class="s1">&gt; &lt;/a&gt;</span>
+                            <span class="s1">&lt;a </span><span class="s2">href</span><span class="s3">=&quot;#&quot; </span><span class="s2">data-switchcolor</span><span class="s3">=&quot;pink&quot; </span><span class="s2">class</span><span class="s3">=&quot;styleswitch&quot; </span><span class="s2">style</span><span class="s3">=&quot;</span><span class="s2">background-color</span><span class="s8">:</span><span class="s10">#FF2761</span><span class="s11">;</span><span class="s3">&quot;</span><span class="s1">&gt; &lt;/a&gt;</span>
+                            <span class="s1">&lt;a </span><span class="s2">href</span><span class="s3">=&quot;#&quot; </span><span class="s2">data-switchcolor</span><span class="s3">=&quot;orange&quot; </span><span class="s2">class</span><span class="s3">=&quot;styleswitch&quot; </span><span class="s2">style</span><span class="s3">=&quot;</span><span class="s2">background-color</span><span class="s8">:</span><span class="s10">#f76d2b</span><span class="s11">;</span><span class="s3">&quot;</span><span class="s1">&gt; &lt;/a&gt;</span>
+                            <span class="s1">&lt;a </span><span class="s2">href</span><span class="s3">=&quot;#&quot; </span><span class="s2">data-switchcolor</span><span class="s3">=&quot;green&quot; </span><span class="s2">class</span><span class="s3">=&quot;styleswitch&quot; </span><span class="s2">style</span><span class="s3">=&quot;</span><span class="s2">background-color</span><span class="s8">:</span><span class="s10">#2dcc70</span><span class="s11">;</span><span class="s3">&quot;</span><span class="s1">&gt; &lt;/a&gt;</span>
+                            <span class="s1">&lt;a </span><span class="s2">href</span><span class="s3">=&quot;#&quot; </span><span class="s2">data-switchcolor</span><span class="s3">=&quot;red&quot; </span><span class="s2">class</span><span class="s3">=&quot;styleswitch&quot; </span><span class="s2">style</span><span class="s3">=&quot;</span><span class="s2">background-color</span><span class="s8">:</span><span class="s10">#de302f</span><span class="s11">;</span><span class="s3">&quot;</span><span class="s1">&gt; &lt;/a&gt;</span>
+                            <span class="s1">&lt;a </span><span class="s2">href</span><span class="s3">=&quot;#&quot; </span><span class="s2">data-switchcolor</span><span class="s3">=&quot;purple&quot; </span><span class="s2">class</span><span class="s3">=&quot;styleswitch&quot; </span><span class="s2">style</span><span class="s3">=&quot;</span><span class="s2">background-color</span><span class="s8">:</span><span class="s10">#6054c2</span><span class="s11">;</span><span class="s3">&quot;</span><span class="s1">&gt; &lt;/a&gt;</span>
+                        <span class="s1">&lt;/div&gt;</span>
+                    <span class="s1">&lt;/div&gt;</span>
+                <span class="s1">&lt;/div&gt;</span>
+            <span class="s1">&lt;/div&gt;</span>
+        <span class="s1">&lt;/div&gt;</span>
+    <span class="s1">&lt;/div&gt;</span>
+<span class="s1">&lt;/div&gt;</span>
+<span class="s4">&lt;!-- End Switcher --&gt;</span>
+
+<span class="s4">&lt;!-- Header --&gt;</span>
+<span class="s1">&lt;header </span><span class="s2">id</span><span class="s3">=&quot;header&quot;</span><span class="s1">&gt;</span>
+    <span class="s1">&lt;nav </span><span class="s2">class</span><span class="s3">=&quot;navbar navbar-expand-lg fixed-top&quot; </span><span class="s2">id</span><span class="s3">=&quot;header_nav&quot;</span><span class="s1">&gt;</span>
+        <span class="s1">&lt;div </span><span class="s2">class</span><span class="s3">=&quot;container-fluid&quot;</span><span class="s1">&gt;</span>
+            <span class="s1">&lt;div </span><span class="s2">class</span><span class="s3">=&quot;row header_row&quot;</span><span class="s1">&gt;</span>
+
+                <span class="s1">&lt;div </span><span class="s2">class</span><span class="s3">=&quot;col-md-3 col-sm-12 col-xs-12&quot;</span><span class="s1">&gt;</span>
+                    <span class="s1">&lt;div </span><span class="s2">class</span><span class="s3">=&quot;navbar-header&quot;</span><span class="s1">&gt;</span>
+                        <span class="s1">&lt;div </span><span class="s2">class</span><span class="s3">=&quot;logo&quot;</span><span class="s1">&gt; &lt;a </span><span class="s2">href</span><span class="s3">=&quot;index-2.html&quot;</span><span class="s1">&gt;&lt;img </span><span class="s2">src</span><span class="s3">=&quot;assets/images/logo.png&quot; </span><span class="s2">alt</span><span class="s3">=&quot;image&quot;</span><span class="s1">/&gt;&lt;/a&gt; &lt;/div&gt;</span>
+                    <span class="s1">&lt;/div&gt;</span>
+                    <span class="s1">&lt;button </span><span class="s2">id</span><span class="s3">=&quot;menu_slide&quot; </span><span class="s2">data-target</span><span class="s3">=&quot;#navigation&quot; </span><span class="s2">aria-expanded</span><span class="s3">=&quot;false&quot; </span><span class="s2">data-toggle</span><span class="s3">=&quot;collapse&quot; </span><span class="s2">class</span><span class="s3">=&quot;navbar-toggler&quot; </span><span class="s2">type</span><span class="s3">=&quot;button&quot;</span><span class="s1">&gt;</span>
+                        <span class="s1">&lt;i </span><span class="s2">class</span><span class="s3">=&quot;fa fa-bars&quot;</span><span class="s1">&gt;&lt;/i&gt;</span>
+                    <span class="s1">&lt;/button&gt;</span>
+                <span class="s1">&lt;/div&gt;</span>
+
+                <span class="s1">&lt;/li&gt; &lt;/li&gt; &lt;/li&gt;</span>
+
+
+
+                                <span class="s1">&lt;/ul&gt;</span>
+                            <span class="s1">&lt;/li&gt;</span>
+                            <span class="s1">&lt;li&gt;&lt;a </span><span class="s2">href</span><span class="s3">=&quot;/gmusee&quot;</span><span class="s1">&gt;</span><span class="s8">Musée</span><span class="s1">&lt;/a&gt;&lt;/li&gt;</span>
+                        <span class="s1">&lt;/ul&gt;</span>
+
+                        <span class="s1">&lt;div </span><span class="s2">class</span><span class="s3">=&quot;Gmusee&quot;</span><span class="s1">&gt;</span>
+                            <span class="s1">&lt;a </span><span class="s2">href</span><span class="s3">=&quot;/gmusee/new&quot; </span><span class="s2">class</span><span class="s3">=&quot;btn outline-btn&quot;</span><span class="s1">&gt;&lt;i </span><span class="s2">class</span><span class="s3">=&quot;fa  fa-plus-circle&quot;</span><span class="s1">&gt;&lt;/i&gt; </span><span class="s8">Ajouter Musée</span><span class="s1">&lt;/a&gt;</span>
+                        <span class="s1">&lt;/div&gt;</span>
+                    <span class="s1">&lt;/div&gt;</span>
+                <span class="s1">&lt;/div&gt;</span>
+            <span class="s1">&lt;/div&gt;</span>
+        <span class="s1">&lt;/div&gt;</span>
+    <span class="s1">&lt;/nav&gt;</span>
+<span class="s1">&lt;/header&gt;</span>
+<span class="s4">&lt;!-- /Header --&gt;</span>
+
+<span class="s4">&lt;!-- Inner-Banner --&gt;</span>
+<span class="s1">&lt;section </span><span class="s2">id</span><span class="s3">=&quot;inner_banner&quot; </span><span class="s2">class</span><span class="s3">=&quot;parallex-bg howitwork_bg&quot;</span><span class="s1">&gt;</span>
+    <span class="s1">&lt;div </span><span class="s2">class</span><span class="s3">=&quot;container&quot;</span><span class="s1">&gt;</span>
+        <span class="s1">&lt;div </span><span class="s2">class</span><span class="s3">=&quot;white-text text-center div_zindex&quot;</span><span class="s1">&gt;</span>
+            <span class="s1">&lt;h1&gt;</span><span class="s5">{% </span><span class="s6">block </span><span class="s7">titreblog </span><span class="s5">%}{% </span><span class="s6">endblock </span><span class="s5">%}</span><span class="s1">&lt;/h1&gt;</span>
+        <span class="s1">&lt;/div&gt;</span>
+    <span class="s1">&lt;/div&gt;</span>
+    <span class="s1">&lt;div </span><span class="s2">class</span><span class="s3">=&quot;dark-overlay&quot;</span><span class="s1">&gt;&lt;/div&gt;</span>
+<span class="s1">&lt;/section&gt;</span>
+<span class="s4">&lt;!-- /Inner-Banner --&gt;</span>
+<span class="s5">{% </span><span class="s6">block </span><span class="s7">body </span><span class="s5">%}{% </span><span class="s6">endblock </span><span class="s5">%}</span>
+<span class="s4">&lt;!-- Footer --&gt;</span>
+<span class="s1">&lt;footer </span><span class="s2">id</span><span class="s3">=&quot;footer&quot; </span><span class="s2">class</span><span class="s3">=&quot;secondary-bg&quot;</span><span class="s1">&gt;</span>
+    <span class="s1">&lt;div </span><span class="s2">class</span><span class="s3">=&quot;container&quot;</span><span class="s1">&gt;</span>
+        <span class="s1">&lt;div </span><span class="s2">class</span><span class="s3">=&quot;row&quot;</span><span class="s1">&gt;</span>
+            <span class="s1">&lt;div </span><span class="s2">class</span><span class="s3">=&quot;col-md-4&quot;</span><span class="s1">&gt;</span>
+                <span class="s1">&lt;div </span><span class="s2">class</span><span class="s3">=&quot;footer_widgets&quot;</span><span class="s1">&gt;</span>
+                    <span class="s1">&lt;h5&gt;</span><span class="s8">Connect with Us</span><span class="s1">&lt;/h5&gt;</span>
+                    <span class="s1">&lt;div </span><span class="s2">class</span><span class="s3">=&quot;follow_us&quot;</span><span class="s1">&gt;</span>
+                        <span class="s1">&lt;ul&gt;</span>
+                            <span class="s1">&lt;li&gt;&lt;a </span><span class="s2">href</span><span class="s3">=&quot;#&quot;</span><span class="s1">&gt;&lt;i </span><span class="s2">class</span><span class="s3">=&quot;fa fa-facebook&quot; </span><span class="s2">aria-hidden</span><span class="s3">=&quot;true&quot;</span><span class="s1">&gt;&lt;/i&gt;&lt;/a&gt;&lt;/li&gt;</span>
+                            <span class="s1">&lt;li&gt;&lt;a </span><span class="s2">href</span><span class="s3">=&quot;#&quot;</span><span class="s1">&gt;&lt;i </span><span class="s2">class</span><span class="s3">=&quot;fa fa-twitter&quot; </span><span class="s2">aria-hidden</span><span class="s3">=&quot;true&quot;</span><span class="s1">&gt;&lt;/i&gt;&lt;/a&gt;&lt;/li&gt;</span>
+                            <span class="s1">&lt;li&gt;&lt;a </span><span class="s2">href</span><span class="s3">=&quot;#&quot;</span><span class="s1">&gt;&lt;i </span><span class="s2">class</span><span class="s3">=&quot;fa fa-linkedin&quot; </span><span class="s2">aria-hidden</span><span class="s3">=&quot;true&quot;</span><span class="s1">&gt;&lt;/i&gt;&lt;/a&gt;&lt;/li&gt;</span>
+                            <span class="s1">&lt;li&gt;&lt;a </span><span class="s2">href</span><span class="s3">=&quot;#&quot;</span><span class="s1">&gt;&lt;i </span><span class="s2">class</span><span class="s3">=&quot;fa fa-google-plus&quot; </span><span class="s2">aria-hidden</span><span class="s3">=&quot;true&quot;</span><span class="s1">&gt;&lt;/i&gt;&lt;/a&gt;&lt;/li&gt;</span>
+                            <span class="s1">&lt;li&gt;&lt;a </span><span class="s2">href</span><span class="s3">=&quot;#&quot;</span><span class="s1">&gt;&lt;i </span><span class="s2">class</span><span class="s3">=&quot;fa fa-instagram&quot; </span><span class="s2">aria-hidden</span><span class="s3">=&quot;true&quot;</span><span class="s1">&gt;&lt;/i&gt;&lt;/a&gt;&lt;/li&gt;</span>
+                        <span class="s1">&lt;/ul&gt;</span>
+                    <span class="s1">&lt;/div&gt;</span>
+                <span class="s1">&lt;/div&gt;</span>
+            <span class="s1">&lt;/div&gt;</span>
+
+            <span class="s1">&lt;div </span><span class="s2">class</span><span class="s3">=&quot;col-md-4&quot;</span><span class="s1">&gt;</span>
+                <span class="s1">&lt;div </span><span class="s2">class</span><span class="s3">=&quot;footer_widgets&quot;</span><span class="s1">&gt;</span>
+                    <span class="s1">&lt;h5&gt;</span><span class="s8">Quick Links</span><span class="s1">&lt;/h5&gt;</span>
+                    <span class="s1">&lt;div </span><span class="s2">class</span><span class="s3">=&quot;footer_nav&quot;</span><span class="s1">&gt;</span>
+                        <span class="s1">&lt;ul&gt;</span>
+                            <span class="s1">&lt;li&gt;&lt;a </span><span class="s2">href</span><span class="s3">=&quot;#&quot;</span><span class="s1">&gt;</span><span class="s8">How it Work</span><span class="s1">&lt;/a&gt;&lt;/li&gt;</span>
+                            <span class="s1">&lt;li&gt;&lt;a </span><span class="s2">href</span><span class="s3">=&quot;#&quot;</span><span class="s1">&gt;</span><span class="s8">Pricing</span><span class="s1">&lt;/a&gt;&lt;/li&gt;</span>
+                            <span class="s1">&lt;li&gt;&lt;a </span><span class="s2">href</span><span class="s3">=&quot;#&quot;</span><span class="s1">&gt;</span><span class="s8">Blog</span><span class="s1">&lt;/a&gt;&lt;/li&gt;</span>
+                            <span class="s1">&lt;li&gt;&lt;a </span><span class="s2">href</span><span class="s3">=&quot;#&quot;</span><span class="s1">&gt;</span><span class="s8">Contact Us</span><span class="s1">&lt;/a&gt;&lt;/li&gt;</span>
+                            <span class="s1">&lt;li&gt;&lt;a </span><span class="s2">href</span><span class="s3">=&quot;#&quot;</span><span class="s1">&gt;</span><span class="s8">Privacy Policy</span><span class="s1">&lt;/a&gt;&lt;/li&gt;</span>
+                            <span class="s1">&lt;li&gt;&lt;a </span><span class="s2">href</span><span class="s3">=&quot;#&quot;</span><span class="s1">&gt;</span><span class="s8">Terms &amp; condition</span><span class="s1">&lt;/a&gt;&lt;/li&gt;</span>
+                        <span class="s1">&lt;/ul&gt;</span>
+                    <span class="s1">&lt;/div&gt;</span>
+                <span class="s1">&lt;/div&gt;</span>
+            <span class="s1">&lt;/div&gt;</span>
+
+            <span class="s1">&lt;div </span><span class="s2">class</span><span class="s3">=&quot;col-md-4&quot;</span><span class="s1">&gt;</span>
+                <span class="s1">&lt;div </span><span class="s2">class</span><span class="s3">=&quot;footer_widgets&quot;</span><span class="s1">&gt;</span>
+                    <span class="s1">&lt;h5&gt;</span><span class="s8">Our Newsletter</span><span class="s1">&lt;/h5&gt;</span>
+                    <span class="s1">&lt;div </span><span class="s2">class</span><span class="s3">=&quot;newsletter_wrap&quot;</span><span class="s1">&gt;</span>
+                        <span class="s1">&lt;form </span><span class="s2">action</span><span class="s3">=&quot;#&quot; </span><span class="s2">method</span><span class="s3">=&quot;get&quot;</span><span class="s1">&gt;</span>
+                            <span class="s1">&lt;input </span><span class="s2">type</span><span class="s3">=&quot;email&quot; </span><span class="s2">class</span><span class="s3">=&quot;form-control&quot; </span><span class="s2">placeholder</span><span class="s3">=&quot;Enter Email Address&quot;</span><span class="s1">&gt;</span>
+                            <span class="s1">&lt;input </span><span class="s2">type</span><span class="s3">=&quot;submit&quot; </span><span class="s2">value</span><span class="s3">=&quot;subscribe&quot; </span><span class="s2">class</span><span class="s3">=&quot;btn&quot;</span><span class="s1">&gt;</span>
+                        <span class="s1">&lt;/form&gt;</span>
+                    <span class="s1">&lt;/div&gt;</span>
+                <span class="s1">&lt;/div&gt;</span>
+            <span class="s1">&lt;/div&gt;</span>
+        <span class="s1">&lt;/div&gt;</span>
+    <span class="s1">&lt;/div&gt;</span>
+
+    <span class="s1">&lt;div </span><span class="s2">class</span><span class="s3">=&quot;footer_bottom&quot;</span><span class="s1">&gt;</span>
+        <span class="s1">&lt;div </span><span class="s2">class</span><span class="s3">=&quot;container&quot;</span><span class="s1">&gt;</span>
+            <span class="s1">&lt;p&gt;</span><span class="s8">Copyright </span><span class="s12">&amp;copy; </span><span class="s8">2020 Elemo. All Rights Reserved</span><span class="s1">&lt;/p&gt;</span>
+        <span class="s1">&lt;/div&gt;</span>
+    <span class="s1">&lt;/div&gt;</span>
+<span class="s1">&lt;/footer&gt;</span>
+<span class="s4">&lt;!-- /Footer --&gt;</span>
+
+<span class="s5">{% </span><span class="s6">block </span><span class="s7">javascripts </span><span class="s5">%}</span>
+<span class="s4">&lt;!-- Scripts --&gt;</span>
+<span class="s1">&lt;script </span><span class="s2">src</span><span class="s3">=&quot;assets/js/jquery.min.js&quot;</span><span class="s1">&gt;&lt;/script&gt;</span>
+<span class="s1">&lt;script </span><span class="s2">src</span><span class="s3">=&quot;assets/js/popper.min.js&quot;</span><span class="s1">&gt;&lt;/script&gt;</span>
+<span class="s1">&lt;script </span><span class="s2">src</span><span class="s3">=&quot;assets/js/bootstrap.min.js&quot;</span><span class="s1">&gt;&lt;/script&gt;</span>
+<span class="s1">&lt;script </span><span class="s2">src</span><span class="s3">=&quot;assets/js/interface.js&quot;</span><span class="s1">&gt;&lt;/script&gt;</span>
+<span class="s4">&lt;!--Carousel-JS--&gt;</span>
+<span class="s1">&lt;script </span><span class="s2">src</span><span class="s3">=&quot;assets/js/owl.carousel.min.js&quot;</span><span class="s1">&gt;&lt;/script&gt;</span>
+<span class="s4">&lt;!--Switcher--&gt;</span>
+<span class="s1">&lt;script </span><span class="s2">src</span><span class="s3">=&quot;assets/switcher/js/switcher.js&quot;</span><span class="s1">&gt;&lt;/script&gt;</span>
+<span class="s1">&lt;/body&gt;</span>
+<span class="s5">{% </span><span class="s6">endblock </span><span class="s5">%}</span>
+
+<span class="s4">&lt;!-- Mirrored from themes.webmasterdriver.net/Elemo/blog-grid-style.html by HTTrack Website Copier/3.x [XR&amp;CO'2014], Tue, 23 Feb 2021 20:31:06 GMT --&gt;</span>
+<span class="s1">&lt;/html&gt;</span>
+</pre>
+</body>
+</html>
