@@ -1,0 +1,42 @@
+{% extends 'baseback.html.twig' %}
+{% block body %}
+
+    <h3>Nos Categories</h3>
+    <br>
+
+    <form class="input-group rounded" action="{{ path('searchC') }}">
+        <input type="text" class="form-control1 rounded"  name="search"
+               aria-describedby="search-addon" />
+
+        <button class="button"><input type="submit" value="Search"></button>
+    </form>
+
+    <br>
+    <table border="1">
+        <thead>
+        <tr>
+           {# <th>Reference</th>#}
+            <th>Reference </th>
+            <th>Nom </th>
+            <th>Update</th>
+            <th>Delete</th>
+
+        </tr>
+        </thead>
+<tbody id="myTable">
+<tr {% for c in categorie %}>
+   {# <td>{{ c.id }}</td>#}
+    <td>{{ c.refCat }}</td>
+    <td>{{ c.nomCat }}</td>
+    <td><button class="button gray"><a href="{{ path('UpdateC',{'id':c.id}) }}"><i class="fa fa-pencil">Update</i></a></button></td>
+    <td><button  class="button gray"><a href="{{ path('DeleteC',{'id':c.id}) }}"><i class="fa fa-trash-o"></i>Delete</a></button></td>
+</tr {% endfor %}>
+</tbody>
+
+
+</table>
+    <button class="btn1"><a href="{{ path('categorie') }}">Ajouter</a></button>
+
+{% endblock %}
+
+

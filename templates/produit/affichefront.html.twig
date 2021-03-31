@@ -1,0 +1,76 @@
+{% extends 'base.html.twig' %}
+{% block style %}
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+{% endblock %}
+{% block body %}
+    <!-- Listings -->
+    <section id="inner_pages">
+        <div class="container"  >
+            <div class="listing_header">
+                <h5>Catalogue</h5>
+
+                <div class="layout-switcher">
+                    <a href="#" class="active"><i class="fa fa-th"></i></a>
+                    <a href="listing-listview.html"><i class="fa fa-align-justify"></i></a>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-3" style="margin: fill">
+                    {% include 'produit/filter.html.twig' with {form :form} only %}
+                </div>
+            </div>
+
+            <br>
+            <br>
+            <div class="row" >
+
+
+                {% for p in produit %}
+                <div class=" col-sm-5 grid_view show_listing "   >
+
+                    <div class="listing_wrap">
+                        <div class="listing_img">
+
+                            {% for image in p.images %}<img src="{{ asset('uploads/'~image.name) }}" style="width: 150px">{% endfor %}
+                        </div>
+                        <div class="listing_info">
+
+                            <div class="row">
+                                <div class="col-md-9 col-xs-6" align="center">
+                                    <h3>{{ p.nomProd |title}}</h3>
+                                </div>
+                                <br>
+                                <div class="col-md-6 col-xs-6 price " >
+                                    <h4><label> {{ p.prixProd| upper }} TND</label></h4>
+                                </div>
+                            </div>
+                            <div align="center">
+                                <a href="#" > <i class="fa fa-cart-plus"></i>Ajouter </a></div>
+                            <div class="row">
+                              {#  <div class="col-md-6">
+                                   <a> <i class="fa fa-heart " aria-hidden="true"></i> Wishlist</a>
+
+                                </div>#}
+
+                            </div>
+                                <div>
+
+                                    <em class="text-muted text-primary"> #{{ p.categorie.nomCat }}</em>
+
+                                </div>
+                        </div>
+                        <div align="right">
+                        <a href="{{ path('produitShow',{'id':p.id}) }}" class="read_btn" >Read More <i class="fa fa-angle-right"></i></a></div>
+                    </div>
+                </div >
+                {% endfor %}
+            </div >
+            <div class="navigation" align="center">
+                {{ knp_pagination_render(produit) }}
+            </div>
+        </div>
+    </section>
+    <!-- /Listings -->
+{% endblock %}

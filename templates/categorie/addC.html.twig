@@ -1,0 +1,15 @@
+{% extends 'baseback.html.twig' %}
+{% block body %}
+    {{ form_start(form,{'attr': {'novalidate': 'novalidate'}} ) }}
+    <h4> Ajouter categorie </h4>
+
+    {{ form_errors(form.refCat) }}
+    {{ form_label(form.refCat,"Reference Categorie") }}
+    {{ form_widget(form.refCat) }}
+    {{ form_errors(form.nomCat) }}
+    {{ form_label(form.nomCat,"Nom Categorie") }}
+    {{ form_widget(form.nomCat)}}
+
+    {{ form_end(form) }}
+
+{% endblock %}

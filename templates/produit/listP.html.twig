@@ -1,0 +1,25 @@
+{% block body %}
+
+<table border="1">
+        <thead>
+        <tr>
+            <th>Reference Produit</th>
+            <th>Nom Produit</th>
+            <th>prix</th>
+            <th>quantité produit</th>
+        </tr>
+        </thead>
+        <tbody >
+
+        <tr {% for p in produit %}>
+            <td>{{ p.refProd }}</td>
+            <td>{{ p.nomProd }}</td>
+            <td>{{ p.prixProd }}</td>
+            <td>{{ p.qteProd}}</td>
+        </tr {% endfor %}>
+        </tbody>
+
+
+    </table>
+
+{% endblock %}

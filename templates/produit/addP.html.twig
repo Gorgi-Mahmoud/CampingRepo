@@ -1,0 +1,28 @@
+{% extends 'baseback.html.twig' %}
+{% block body %}
+
+    {{ form_start(form,{'attr': {'novalidate': 'novalidate'}} ) }}
+    <h3> Ajouter Produit </h3>
+    <a href="{{ path('AfficheP') }}"  style="margin-left: 800px">back to list</a>
+    <br>
+    <br>
+    {{ form_errors(form.refProd) }}
+    {{ form_label(form.refProd,"Reference ") }}
+    {{ form_widget(form.refProd) }}
+    {{ form_errors(form.nomProd) }}
+    {{ form_label(form.nomProd,"Nom ") }}
+    {{ form_widget(form.nomProd)}}
+    {{ form_errors(form.nomProd) }}
+    {{ form_label(form.qteProd,"Quantite ") }}
+    {{ form_widget(form.qteProd)}}
+    {{ form_errors(form.prixProd) }}
+    {{ form_label(form.prixProd,"Prix ") }}
+    {{ form_widget(form.prixProd)}}
+    <br>
+  {#  {{ form_errors(form.imgProd) }}
+    {{ form_label(form.imgProd,"Image produit") }}
+    {{ form_widget(form.imgProd)}}#}
+    {{ form_end(form) }}
+    {#{{ form(form) }}#}
+
+{% endblock %}

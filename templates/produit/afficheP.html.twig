@@ -1,0 +1,77 @@
+{% extends 'baseback.html.twig' %}
+
+{% block body %}
+    <h3>Nos Produits</h3>
+    <div class="dropdown pull-right">
+        <button class="btn1 dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Trier Par
+        </button>
+        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+            <form method="post" action="{{ path('tri') }}" class="col-lg-2">
+                <input type="submit" class="dropdown-item" value=" prix" >
+            </form>
+            <form method="post" action="{{ path('triQ') }}" class="col-lg-2">
+                <input type="submit" class="dropdown-item" value=" Quantite" >
+             {#   <a class="dropdown-item" href="#">Par Prix</a>#}
+            </form>
+
+
+        </div>
+    </div>
+  {#  <div class="form-group row pull-right"   >
+        <form method="post" action="{{ path('tri') }}" class="col-lg-2">
+            <input type="submit" value="tri par prix" class="btn btn-dark">
+        </form>
+        <form method="post" action="{{ path('triQ') }}" class="col-lg-2">
+            <input type="submit" value="tri par Quantite" class="btn btn-secondary">
+        </form>
+    </div>
+#}
+    <form class="input-group rounded" action="{{ path('search') }}">
+        <input type="text" class="form-control1 rounded"  name="search"
+               aria-describedby="search-addon" />
+
+      <button class="button"><input type="submit" value="Search"></button>
+    </form>
+    <br>
+
+<table border="1" id="t">
+    <thead>
+   <tr>
+       <th>Reference </th>
+        <th>Nom </th>
+        <th>Prix</th>
+        <th>Quantité </th>
+       <th>Images</th>
+        <th>Update</th>
+        <th>Delete</th>
+    </tr>
+    </thead>
+    <tbody id="all">
+
+    <tr {% for p in produit %}>
+        <td>{{ p.refProd }}</td>
+        <td>{{ p.nomProd }}</td>
+        <td>{{ p.prixProd }} TND</td>
+        <td>{{ p.qteProd}}</td>
+        <td>{% for image in p.images %}<img src="{{ asset('uploads/'~image.name) }}" style="width: 150px">{% endfor %}</td>
+        <td><button class="button gray"><a href="{{ path('Update',{'id':p.id}) }}" ><i class="fa fa-pencil">Update</i></a></button></td>
+        <td><button  class="button gray"><a href="{{ path('DeleteP',{'id':p.id}) }}"><i class="fa fa-trash-o"></i>Delete</a></button></td>
+    </tr {% endfor %}>
+    </tbody>
+    <tbody id="search">
+    </tbody>
+</table>
+    <div class="row pull-right colo">
+
+        <div class="bs-popover-right">
+            <button class=" btn1 " ><a href="{{ path('produit') }}">Ajouter</a></button>
+            <button class=" btn1 " ><a href="{{ path('ListP') }}">Imprimer</a></button>
+        </div>
+    </div>
+    <div class="navigation">
+        {{ knp_pagination_render(produit) }}
+    </div>
+
+
+{% endblock %}
