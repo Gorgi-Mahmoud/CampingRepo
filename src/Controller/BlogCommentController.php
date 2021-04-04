@@ -27,6 +27,11 @@ class BlogCommentController extends AbstractController
         $form->handleRequest($request);
 
         if ($form->isSubmitted()) {
+            $comment->setTime(new \DateTime());
+            $Blog = new Blog();
+            $em=$this->getDoctrine()->getManager();
+            $Blog=$em->getRepository(Blog::class)->find($id);
+            $comment->setBlogId($Blog);
             $em = $this->getDoctrine()->getManager();
             $em->persist($comment);
             $em->flush();

@@ -9,11 +9,15 @@
             <div class="col-md-8">
                 <article class="article_wrap single_post">
                     <div class="post-thumbnail">
-                        <img src="assets/images/post_5.jpg" alt="image">
+                        {% for image in Blog.photo %}
+                            <img src="{{ asset('uploads/'~image.name) }} " style="width: 300px;">
+                        {% endfor %}
+
+
                     </div>
                     <div class="entry-desc">
                         <div class="entry-content">
-                            <p>{{ Blog.contenu }}</p>
+                            <p>{{ Blog.contenu|raw }}</p>
                         </div>
                     </div>
                     <div class="post_tag">
@@ -24,11 +28,27 @@
                         {% endfor %}
 
                     </div>
-                    <div class="share_post">
-                        <a href="#" class="facebook"><i class="fa fa-facebook-f"></i> Facebook</a>
-                        <a href="#" class="linkedin"><i class="fa fa-linkedin"></i> Linkedin</a>
-                        <a href="#" class="twitter"><i class="fa fa-twitter"></i> Twitter</a>
-                        <a href="#" class="g_plus"><i class="fa fa-google-plus"></i> Goodle Plus</a>
+                    <!-- You can use Open Graph tags to customize link previews.
+Learn more: https://developers.facebook.com/docs/sharing/webmasters -->
+                    <meta property="og:url"           href="blog/{{ Blog.id }}" />
+                    <meta property="og:type"          content="website" />
+                    <meta property="og:title"         content="{{ Blog.titre }}" />
+                    <meta property="og:description"   content="{{ Blog.contenu }}" />
+                    <meta property="og:image"         content="asset('uploads/'~image.name" />
+
+                    <!-- Load Facebook SDK for JavaScript -->
+                    <div id="fb-root"></div>
+                    <script>(function(d, s, id) {
+                            var js, fjs = d.getElementsByTagName(s)[0];
+                            if (d.getElementById(id)) return;
+                            js = d.createElement(s); js.id = id;
+                            js.src = "https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v3.0";
+                            fjs.parentNode.insertBefore(js, fjs);
+                        }(document, 'script', 'facebook-jssdk'));</script>
+
+                    <div class="fb-share-button"
+                         data-href="/your-page.html"
+                         data-layout="button_count">
                     </div>
                 </article>
 
@@ -46,7 +66,7 @@
                                     </div>
                                     <div class="comment-meta commentmetadata"> <a href="#">Feb 23, 2020 at 12:52 pm</a> </div>
                                     <div class="comment-content">
-                                        <p>{{ s.contenu }}</p>
+                                        <p>{{ s.contenu|raw }}</p>
 
                                 </div>
 

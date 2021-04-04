@@ -18,6 +18,14 @@ class BlogRepository extends ServiceEntityRepository
     {
         parent::__construct($registry, Blog::class);
     }
+    public function findEntitiesByString($string)
+    {
+        return $this->createQueryBuilder('Blog')
+            ->andWhere('Blog.titre LIKE :name')
+            ->setParameter('name', '%'.$string.'%')
+            ->getQuery()
+            ->execute();
+    }
 
     // /**
     //  * @return Blog[] Returns an array of Blog objects

@@ -45,6 +45,7 @@ class BlogComment
 
     /**
      * @ORM\ManyToOne(targetEntity=Blog::class, inversedBy="blogComments")
+     * @ORM\JoinColumn(onDelete="CASCADE")
      */
     public $blog_id;
 

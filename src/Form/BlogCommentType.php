@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Form;
+use FOS\CKEditorBundle\Form\Type\CKEditorType;
 use Symfony\Component\Form\Extension\Core\Type\IntegerType;
 
 use App\Entity\Blog;
@@ -18,14 +19,9 @@ class BlogCommentType extends AbstractType
     {
         $builder
 
-            ->add('Time')
             ->add('Name')
             ->add('email')
-            ->add('blog_id', EntityType::class, [
-                'class'  =>Blog::class,
-
-            ])
-            ->add('Contenu');
+            ->add('Contenu', CKEditorType::class);
         ;
     }
 
