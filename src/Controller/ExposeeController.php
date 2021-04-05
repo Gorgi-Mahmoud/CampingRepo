@@ -25,14 +25,12 @@ use Symfony\Component\HttpFoundation\JsonResponse;
 class ExposeeController extends AbstractController
 {
     /**
-     * @Route("/exposee", name="exposee")
+     * @Route("", name="")
      *
      */
     public function index(): Response
     {
-        return $this->render('exposee/index.html.twig', [
-            'controller_name' => 'ExposeeController',
-        ]);
+        return $this->render('home.html.twig');
     }
 
     /**
@@ -45,13 +43,35 @@ class ExposeeController extends AbstractController
 
 
         $exposee=$repository->findAll();
-        return $this->render('exposee/affiche.html.twig',['exposee'=>$exposee]);
+        $articles = $paginator->paginate(
+            $exposee, // Requête contenant les données à paginer (ici nos articles)
+            $request->query->getInt('page', 1), // Numéro de la page en cours, passé dans l'URL, 1 si aucune page
+            6 // Nombre de résultats par page
+        );
+        return $this->render('exposee/affiche.html.twig',['exposee'=>$articles]);
 
     }
     /**
      * @param ExposeeRepository $repository
      * @return Response
      * @Route ("",name="")
+     */
+    public function afficheExp(ExposeeRepository $repository,PaginatorInterface $paginator,Request $request){
+
+
+        $exposee=$repository->findAll();
+        $articles = $paginator->paginate(
+            $exposee, // Requête contenant les données à paginer (ici nos articles)
+            $request->query->getInt('page', 1), // Numéro de la page en cours, passé dans l'URL, 1 si aucune page
+            6 // Nombre de résultats par page
+        );
+        return $this->render('home.html.twig',['exposee'=>$articles]);
+
+    }
+    /**
+     * @param ExposeeRepository $repository
+     * @return Response
+     * @Route ("/exposee",name="exposee")
      */
     public function afficheExposee2(ExposeeRepository $repository,PaginatorInterface $paginator,Request $request){
 
@@ -72,11 +92,9 @@ class ExposeeController extends AbstractController
      */
     public function afficherEx($id,ExposeeRepository $repository,PaginatorInterface $paginator,Request $request){
         $Exposee=$repository->find($id);
-        $articles = $paginator->paginate(
-            $Exposee->getPhoto(), // Requête contenant les données à paginer (ici nos articles)
-            $request->query->getInt('page', 1), // Numéro de la page en cours, passé dans l'URL, 1 si aucune page
-            3 // Nombre de résultats par page
-        );
+        $articles = $Exposee->getPhoto() ;// Requête contenant les données à paginer (ici nos articles)
+
+
         return $this->render('exposee/afficherEX.html.twig',['exposee'=>$articles,'ex'=>$Exposee]);
 
     }
@@ -229,6 +247,9 @@ class ExposeeController extends AbstractController
     {
         $em = $this->getDoctrine()->getManager();
         $requestString = $request->get('q');
+
+
+
 //        var_dump(strlen($requestString));
         $entities =  $em->getRepository(Exposee::class)->findEntitiesByString($requestString);
 
@@ -277,7 +298,12 @@ class ExposeeController extends AbstractController
             $em->remove($fetchedImage);
             $em->flush();
             $exposee=$repository->findAll();
-             return $this->render('exposee/affiche.html.twig',['exposee'=>$exposee]);
+            $articles = $paginator->paginate(
+                $exposee, // Requête contenant les données à paginer (ici nos articles)
+                $request->query->getInt('page', 1), // Numéro de la page en cours, passé dans l'URL, 1 si aucune page
+                6 // Nombre de résultats par page
+            );
+             return $this->render('exposee/affiche.html.twig',['exposee'=>$articles]);
           }
                   $exposee=$repository->findAll();
         return $this->render('exposee/affiche.html.twig',['exposee'=>$exposee]);

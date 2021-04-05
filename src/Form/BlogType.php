@@ -4,8 +4,11 @@ namespace App\Form;
 
 use App\Entity\Blog;
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\FileType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
+use FOS\CKEditorBundle\Form\Type\CKEditorType;
+use Symfony\Component\Form\Extension\Core\Type\TextType;
 
 class BlogType extends AbstractType
 {
@@ -13,9 +16,14 @@ class BlogType extends AbstractType
     {
         $builder
             ->add('titre')
-            ->add('contenu')
+            ->add('contenu', CKEditorType::class)
             ->add('tags')
-
+            ->add('Photos', FileType::class, [
+                'label' => false,
+                'multiple' => true,
+                'mapped'=> false,
+                'required' =>false
+            ])
 
         ;
     }

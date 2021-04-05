@@ -1,0 +1,83 @@
+{% extends 'base1.html.twig' %}
+
+{% block title %}Gmusee{% endblock %}
+
+{% block body %}
+
+    <h1>Musée</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ gmusee.id }}</td>
+
+            </tr>
+            <tr>
+                <th>Nom</th>
+                <td>{{ gmusee.nom }}</td>
+            </tr>
+            <tr>
+                <th>Place</th>
+                <td>{{ gmusee.place }}</td>
+            </tr>
+            <tr>
+                <th>Description</th>
+                <td>{{ gmusee.description }}</td>
+            </tr>
+            <tr>
+                <th>Images</th>
+
+                <td>
+                    {% for image in gmusee.images %}
+
+                        <img src="{{ asset ('/uploads/' ~ image.name ) }}"
+                             alt="image" width="150">
+
+
+                <td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('gmusee_index_back') }}">back to list</a>
+
+
+    {{ include('gmusee/_delete_form.html.twig') }}
+
+    <script
+            src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js">
+    </script>
+    <script>
+        $( document ).ready(function() {
+            $("#search").keyup(function(e){
+                let value = $(this).val();
+                $.ajax({
+
+                    url : "{{ path('gmusee_index_back') }}",
+                    type : 'GET',
+                    data: {
+                        searchValue: value
+                    },
+                    success : function(retour){
+                        if(retour){
+                            $('#t tbody#search').empty();
+                            $.each(JSON.parse(retour), function(i, obj) {
+                                $('#t tbody#all').hide();
+                                $('#t tbody#search').append('<tr><td> '+obj.id+'  </td><td>'+obj.description+' </td><td></td></tr>');
+                            });
+                        }
+                        else
+                        {
+                            $('#t tbody#all').show();
+                            $(`#t tbody#search`).empty();
+                            $('#t tbody#search').fadeIn('fast');
+                        }
+                    },
+                });
+                return false;
+            });
+        });
+    </script>
+    {% endfor %}
+{% endblock %}

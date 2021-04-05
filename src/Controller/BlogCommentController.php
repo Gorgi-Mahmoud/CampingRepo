@@ -12,12 +12,14 @@ use Symfony\Component\Routing\Annotation\Route;
 use App\Entity\Blog;
 use Symfony\Component\Form\FormTypeInterface;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Security;
 class BlogCommentController extends AbstractController
 {
     /**
      * @param Request $request
      * @param $id
      * @Route("/addComment/{id}", name="ajouterC")
+     * @Security("is_granted('ROLE_USER')")
      */
     public function addComment(Request $request,$id)
     {
@@ -26,7 +28,15 @@ class BlogCommentController extends AbstractController
         $form->add('Ajouter',SubmitType::class);
         $form->handleRequest($request);
 
+
         if ($form->isSubmitted()) {
+            $comment->setTime(new \DateTime());
+            $comment->setName($this->getUser()->getUsername());
+            $comment->setEmail($this->getUser()->getEmail());
+            $Blog = new Blog();
+            $em=$this->getDoctrine()->getManager();
+            $Blog=$em->getRepository(Blog::class)->find($id);
+            $comment->setBlogId($Blog);
             $em = $this->getDoctrine()->getManager();
             $em->persist($comment);
             $em->flush();

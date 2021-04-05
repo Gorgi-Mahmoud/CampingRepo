@@ -8,7 +8,7 @@ use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Form\FormTypeInterface;
 use Symfony\Component\Validator\Constraints as Assert;
-
+//use Knp\Snappy\Pdf;
 
 /**
  * @ORM\Entity(repositoryClass=BlogRepository::class)
@@ -50,7 +50,8 @@ class Blog
     private $date_update;
 
     /**
-     * @ORM\OneToMany(targetEntity=BlogComment::class, mappedBy="blog_id")
+     * @ORM\OneToMany(targetEntity=BlogComment::class, mappedBy="blog_id",cascade={"remove"})
+     * orphanRemoval=true
      */
     private $blogComments;
 
@@ -64,9 +65,19 @@ class Blog
      */
     private $vues=0;
 
+    /**
+     * @ORM\OneToMany(targetEntity=Photos::class, mappedBy="Blog",orphanRemoval=true,cascade={"persist"})
+     */
+
+    private $photo;
+
+    private $snappy;
+
+
     public function __construct()
     {
         $this->blogComments = new ArrayCollection();
+        $this->photo = new ArrayCollection();
     }
 
 
@@ -199,6 +210,66 @@ class Blog
     public function setVues(int $vues): self
     {
         $this->vues = $vues;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|Photos[]
+     */
+    public function getName(): Collection
+    {
+        return $this->name;
+    }
+
+    public function addName(Photos $name): self
+    {
+        if (!$this->name->contains($name)) {
+            $this->name[] = $name;
+            $name->setBlog($this);
+        }
+
+        return $this;
+    }
+
+    public function removeName(Photos $name): self
+    {
+        if ($this->name->removeElement($name)) {
+            // set the owning side to null (unless already changed)
+            if ($name->getBlog() === $this) {
+                $name->setBlog(null);
+            }
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|Photos[]
+     */
+    public function getPhoto(): Collection
+    {
+        return $this->photo;
+    }
+
+    public function addPhoto(Photos $photo): self
+    {
+        if (!$this->photo->contains($photo)) {
+            $this->photo[] = $photo;
+            $photo->setBlog($this);
+        }
+
+        return $this;
+    }
+
+    public function removePhoto(Photos $photo): self
+    {
+        if ($this->photo->removeElement($photo)) {
+            // set the owning side to null (unless already changed)
+            if ($photo->getBlog() === $this) {
+                $photo->setBlog(null);
+            }
+        }
 
         return $this;
     }

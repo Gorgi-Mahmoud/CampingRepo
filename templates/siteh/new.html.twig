@@ -1,0 +1,12 @@
+{% extends 'base1.html.twig' %}
+
+{% block title %}Siteh{% endblock %}
+
+{% block body %}
+    <h4>Ajouter Site Historique</h4>
+<ul>
+    {{ include('siteh/_form.html.twig') }}
+
+    <a href="{{ path('siteh_index') }}"> Retour</a>
+</ul>
+{% endblock %}

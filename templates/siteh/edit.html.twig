@@ -1,0 +1,18 @@
+{% extends 'base1.html.twig' %}
+
+{% block title %}Edit Siteh{% endblock %}
+
+{% block body %}
+
+    <h1>Edit Siteh</h1>
+
+    {{ include('siteh/_form.html.twig', {'button_label': 'Update'}) }}
+
+    <a href="{{ path('siteh_index') }}">back to list</a>
+
+    {{ include('siteh/_delete_form.html.twig') }}
+
+{% endblock %}
+{% block javascripts %}
+    <script src="{{ asset('js/photos.js') }}"></script>
+{% endblock %}

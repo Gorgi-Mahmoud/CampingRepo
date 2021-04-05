@@ -1,0 +1,12 @@
+{% extends 'base1.html.twig' %}
+
+{% block title %}New Gmusee{% endblock %}
+
+{% block body %}
+    <h4>Ajouter Musée</h4>
+<ul>
+    {{ include('gmusee/_form.html.twig') }}
+
+    <a href="{{ path('gmusee_index_back') }}"> Retour</a>
+</ul>
+{% endblock %}

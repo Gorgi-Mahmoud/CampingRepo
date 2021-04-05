@@ -1,0 +1,68 @@
+{% extends 'front.html.twig' %}
+{% block title %}siteh index{% endblock %}
+{% block body %}
+    <!-- Inner-Banner -->
+    <section id="inner_banner" class="parallex-bg">
+        <div class="container">
+            <div class="white-text text-center div_zindex">
+                <h1>Site Historique</h1>
+            </div>
+        </div>
+        <div class="dark-overlay"></div>
+    </section>
+    <!-- /Inner-Banner -->
+
+
+    <section id="inner_pages">
+        {% for siteh in sitehs %}
+
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-8">
+                            <div class="row">
+                                <article class="col-md-12 article_wrap">
+                                    <div class="post-thumbnail">
+
+                                        <a href=""><img src="{{ asset ('/uploads/' ~ image.name ) }}" alt="photo"></a>
+                                    </div>
+
+
+                                    <div class="entry-desc">
+                                        <h3><a href="blog-single.html">{{ siteh.nom }} </a></h3>
+                                        <div class="entry_meta">
+                                            <span {{ siteh.description }}><i class="fa fa-eye"></i> 48 Views</span>
+                                            <span class="meta_m"><i class="fa fa-heart-o"></i> <a href="#">4 Likes</a></span>
+                                        </div>
+                                        <div class="entry-content">
+                                            <p>{{ siteh.description }}</p>
+                                        </div>
+                                        <a href="blog-single.html" class="read_btn">Read More <i class="fa fa-angle-right"></i></a>
+                                    </div>
+                                </article>
+
+
+                            </div>
+                        </div>
+
+                        <aside class="col-md-4">
+                            <div class="sidebar">
+                                <div class="sidebar_widgets">
+                                    <div class="widget_title">
+                                        <h4>Categories</h4>
+                                    </div>
+                                    <ul>
+                                        <li><a href="#">Populaire</a></li>
+                                        <li><a href="#"></a></li>
+                                        <li><a href="#"></a></li>
+
+                                    </ul>
+                                </div>
+
+                        </aside>
+                    </div>
+                </div>
+            {% endfor %}
+
+    </section>
+
+{% endblock %}

@@ -1,0 +1,45 @@
+{% extends 'base1.html.twig' %}
+
+{% block title %}siteh{% endblock %}
+
+{% block body %}
+    <h1>Site historique</h1>
+
+    <table class="table">
+        <tbody>
+        <tr>
+            <th>Id</th>
+            <td>{{ siteh.id }}</td>
+        </tr>
+        <tr>
+            <th>Nom</th>
+            <td>{{ siteh.nom }}</td>
+        </tr>
+        <tr>
+            <th>Place</th>
+            <td>{{ siteh.place }}</td>
+        </tr>
+        <tr>
+            <th>Description</th>
+            <td>{{ siteh.description }}</td>
+        </tr>
+        <tr>
+            <th>Photos</th>
+
+            <td>
+                {% for photo in siteh.photos %}
+
+                    <img src="{{ asset ('/uploads/' ~ photo.name ) }}"
+                         alt="image" width="150">
+
+                {% endfor %}
+            <td>
+        </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('siteh_index') }}">back to list</a>
+
+
+    {{ include('siteh/_delete_form.html.twig') }}
+{% endblock %}

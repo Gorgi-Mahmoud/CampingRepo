@@ -26,6 +26,28 @@ class Photos
      * @ORM\ManyToOne(targetEntity=Exposee::class, inversedBy="photo")
      */
     private $exposee;
+    /**
+     * @ORM\ManyToMany(targetEntity="App\Entity\Siteh", inversedBy="photos")
+     */
+    private $siteh;
+    /**
+     * @ORM\ManyToOne(targetEntity=Blog::class, inversedBy="name")
+     *  @ORM\JoinColumn(onDelete="CASCADE")
+     */
+    private $Blog;
+
+    public function getBlog(): ?Blog
+    {
+        return $this->Blog;
+    }
+
+    public function setBlog(?Blog $Blog): self
+    {
+        $this->Blog = $Blog;
+
+        return $this;
+    }
+
 
     public function getId(): ?int
     {
@@ -52,6 +74,17 @@ class Photos
     public function setExposee(?Exposee $exposee): self
     {
         $this->exposee = $exposee;
+
+        return $this;
+    }
+    public function getSiteh(): ?Siteh
+    {
+        return $this->siteh;
+    }
+
+    public function setSiteh(?Siteh $siteh): self
+    {
+        $this->siteh = $siteh;
 
         return $this;
     }

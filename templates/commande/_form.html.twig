@@ -1,0 +1,10 @@
+
+{{ form_start(form) }}
+    {{ form_widget(form) }}
+
+<div>
+    <button class="btn">{{ button_label|default('Pay Order At Delivery') }}</button>
+    <a class="btn" href={{ path('payonline') }}>Pay Order Online</a>
+</div>
+
+{{ form_end(form) }}

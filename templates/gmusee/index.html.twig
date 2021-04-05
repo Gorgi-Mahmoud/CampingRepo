@@ -1,0 +1,98 @@
+{% extends 'base1.html.twig' %}
+
+{% block title %}Gmusee index{% endblock %}
+
+{% block body %}
+
+<div class="col-lg-12 col-md-12">
+    <div class="dashboard-list-box">
+        <div class="post-thumbnail">
+    <label for="search"></label><input type="text" id="search" class="form-control" placeholder="Search">
+
+
+
+        <h4>Musée</h4>
+        <ul>
+    </tr>
+    </thead>
+    <tbody id="all">
+
+
+
+
+    {% for gmusees in gmusee %}
+    {% for image in gmusees.images %}
+
+            <li>
+
+                <div class="list-box-listing">
+                    <div class="list-box-listing-img"><a href="#"><img src="{{ asset ('/uploads/' ~ image.name ) }}" alt=""></a></div>
+                    <div class="list-box-listing-content">
+                        <div class="inner">
+                            <h3><a href="{{ path('gmusee_show', {'id': gmusees.id}) }}">{{ gmusees.nom }}</a></h3>
+                            <i class="fa fa-map-o"></i>  <span>{{ gmusees.place }}</span>
+                            <div class="star-rating">
+                                <div class="rating-counter">{{ gmusees.description }}</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="buttons-to-right">
+                <a href="{{ path('gmusee_edit', {'id': gmusees.id}) }}" class="button gray"><i class="fa fa-pencil"></i> Edit</a>
+                <a href="{{ path('gmusee_delete', {'id': gmusees.id}) }}" class="button red"><i class="fa fa-trash-o"></i> Delete</a>
+                <tbody>  <a  href="{{ path('gmusee_show', {'id': gmusees.id}) }}" class="button gray"><i class="fa fa-eye"></i>show</a>
+                </tbody>
+                <tbody id="search">
+                </tbody>
+
+            </li>
+
+
+
+
+
+
+
+
+
+
+
+            <script
+                    src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+            <script>
+                $( document ).ready(function() {
+                    $("#search").keyup(function(e){
+                        let value = $(this).val();
+                        $.ajax({
+
+                            url : "{{ path('searchStudentx') }}",
+                            type : 'GET',
+                            data: {
+                                searchValue: value
+                            },
+                            success : function(retour){
+                                if(retour){
+                                    $('#t tbody#search').empty();
+                                    $.each(JSON.parse(retour), function(i, obj) {
+                                        $('#t tbody#all').hide();
+                                        $('#t tbody#search').append('<tr><td> '+obj.id+'  </td><td>'+obj.description+' </td><td></td></tr>');
+                                    });
+                                }
+                                else
+                                {
+                                    $('#t tbody#all').show();
+                                    $(`#t tbody#search`).empty();
+                                    $('#t tbody#search').fadeIn('fast');
+                                }
+                            },
+                        });
+                        return false;
+                    });
+                });
+            </script>
+            {% endfor %}
+
+            {% endfor %}
+
+    {{ knp_pagination_render(gmusee) }}
+{% endblock %}
