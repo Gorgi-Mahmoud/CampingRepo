@@ -24,7 +24,7 @@ class Produit
     /**
      * @ORM\Column(type="integer")
      * @Assert\NotBlank
-     * @Assert\Unique
+
      */
     private $refProd;
 

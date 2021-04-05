@@ -112,4 +112,13 @@ class ProduitRepository extends ServiceEntityRepository
             6
         );
     }
+    public function findProduitByRef($produit)
+    {
+        return $this->createQueryBuilder('r')
+            ->where('r.refProd Like :refProd')
+            ->setParameter('refProd', '%'.$produit.'%')
+            ->getQuery()
+            ->getResult()
+            ;
+    }
 }

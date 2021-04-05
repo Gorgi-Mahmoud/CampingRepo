@@ -10,6 +10,7 @@
     <meta name="description" content="">
     <title>Elemo - Directory & Listings HTML Template</title>
     {% block stylesheets %}{% endblock %}
+    <link rel="stylesheet" href="{{ asset('bundles/mercuryseriesflashy/css/flashy.css') }}">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.min.css" integrity="sha512-/zs32ZEJh+/EO2N1b0PEdoA10JkdC3zJ8L5FTiQu82LR9S/rOQNfQN7U59U9BC12swNeRAz3HSzIL2vpp4fv3w==" crossorigin="anonymous" />
     <!--Bootstrap -->
     <link rel="stylesheet" href="{{ asset('assets/css/bootstrap.min.css') }}" type="text/css">
@@ -27,11 +28,14 @@
     <link rel="shortcut icon" href="{{ asset('assets/images/favicon-icon/favicon.png')}}">
     <!-- Google-Font-->
     <link href="{{ asset('https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700')}}" rel="stylesheet">
+    <script src="{{ asset('bundles/mercuryseriesflashy/js/flashy.js') }}"></script>
+
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
     <script src="{{ asset('https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js')}}"></script>
     <script src="{{ asset('https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js')}}"></script>
+
 
     <![endif]-->
 </head>
@@ -104,13 +108,16 @@
     </div>
 
     <!-- Scripts -->
+    <script src="//code.jquery.com/jquery.js"></script>
+    <script src="{{ asset('bundles/mercuryseriesflashy/js/flashy.js') }}"></script>
+
     <script src="{{ asset('assets/js/jquery.min.js')}}"></script>
     <script src="{{ asset('assets/js/popper.min.js')}}"></script>
     <script src="{{ asset('assets/js/bootstrap.min.js')}}"></script>
     <script src="{{ asset('assets/js/interface.js')}}"></script>
     <!--Carousel-JS-->
     <script src="{{ asset('assets/js/owl.carousel.min.js')}}"></script>
-
+</div>
 </body>
 
 <!-- Mirrored from themes.webmasterdriver.net/Elemo/dashboard-my-events.html by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 23 Feb 2021 20:32:41 GMT -->

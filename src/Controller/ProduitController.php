@@ -9,6 +9,7 @@ use App\Form\ProduitType;
 use App\Form\SearchForm;
 use App\Repository\CategorieRepository;
 use App\Repository\ProduitRepository;
+use MercurySeries\Flashy\FlashyNotifier;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\HttpFoundation\JsonResponse;
@@ -158,6 +159,10 @@ class ProduitController extends AbstractController
         $em=$this->getDoctrine()->getManager();
         $em->remove($produit);//delete
         $em->flush();//mise à jour BD
+        $this->addFlash(
+            'info',
+            'deleted successfuly!'
+        );
         return $this->redirectToRoute('AfficheP');
 
     }
@@ -191,6 +196,11 @@ class ProduitController extends AbstractController
             $em=$this->getDoctrine()->getManager();
             $em->persist($produit);
             $em->flush();
+
+            $this->addFlash(
+                'info',
+                'added successfuly!'
+            );
             return $this->redirectToRoute('AfficheP');
         }
         return $this->render("produit/addP.html.twig",
@@ -230,6 +240,10 @@ class ProduitController extends AbstractController
             }
             $em=$this->getDoctrine()->getManager();
             $em->flush();
+            $this->addFlash(
+                'info',
+                'updated successfuly!'
+            );
             return $this->redirectToRoute('AfficheP');
         }
         return $this->render("produit/addP.html.twig",
@@ -303,4 +317,18 @@ class ProduitController extends AbstractController
         }
 
     }*/
+    /**
+     * @param Request $request
+     * @return Response
+     * @Route ("/searchAjax",name="searchAjax")
+     */
+    public function searchAjax(Request $request)
+    {
+        $repository = $this->getDoctrine()->getRepository(Produit::class);
+        $requestString=$request->get('searchValue');
+        $produit = $repository->findProduitByRef($requestString);
+        return $this->render('produit/produitajaxback.html.twig' ,[
+            "produit"=>$produit,
+        ]);
+    }
 }

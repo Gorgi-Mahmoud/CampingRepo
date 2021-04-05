@@ -1,4 +1,4 @@
-{% extends 'baseback.html.twig' %}
+{% extends 'base.html.twig' %}
 
 {% block body %}
     <div class="card">
@@ -7,7 +7,7 @@
                 <article class="gallery-wrap">
 
                     <div class="listing_img">
-                        {% for image in produit.images %}<img src="{{ asset('uploads/'~image.name) }}" style="width: 150px">{% endfor %}
+                        {% for image in produit.images %}<img src="{{ asset('uploads/'~image.name) }}" style="width: 150px ;height: 150px">{% endfor %}
                     </div>
                 </article> <!-- gallery-wrap .end// -->
             </aside>

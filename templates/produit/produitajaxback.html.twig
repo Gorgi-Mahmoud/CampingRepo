@@ -1,0 +1,9 @@
+<tr {% for p in produit %}>
+    <td>{{ p.refProd }}</td>
+    <td>{{ p.nomProd }}</td>
+    <td>{{ p.prixProd }} TND</td>
+    <td>{{ p.qteProd}}</td>
+    <td>{% for image in p.images %}<img src="{{ asset('uploads/'~image.name) }}" style="width: 150px">{% endfor %}</td>
+    <td><button class="button gray"><a href="{{ path('Update',{'id':p.id}) }}" ><i class="fa fa-pencil">Update</i></a></button></td>
+    <td><button  class="button gray"><a href="{{ path('DeleteP',{'id':p.id}) }}"><i class="fa fa-trash-o"></i>Delete</a></button></td>
+</tr {% endfor %}>

@@ -3,6 +3,7 @@
 namespace App\Controller;
 
 use App\Entity\Categorie;
+use App\Entity\Produit;
 use App\Form\CategorieType;
 use App\Repository\CategorieRepository;
 use App\Repository\ProduitRepository;
@@ -106,4 +107,5 @@ class CategorieController extends AbstractController
         );
         return $this->render('categorie/afficheC.html.twig',['categorie'=>$categorie]);
     }
+
 }
